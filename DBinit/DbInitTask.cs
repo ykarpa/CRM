@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace DBinit
 {
 	public class DbInitTask
 	{
+		private static Random r = new Random();
 		public static void CreateTables(DataBase db)
 		{
 			string usersQuery = SQLQueryBuilder.CreateTable("users", "id serial primary key,\r\n    first_name varchar(50) not null,\r\n    last_name  varchar(50) not null,\r\n    birth_date date        not null,\r\n    role       varchar(15) not null,\r\n    email      varchar(50) not null unique,\r\n    balance    int         not null,\r\n    created_at date");
@@ -25,8 +27,34 @@ namespace DBinit
 		}
 	}
 
-		public static void FillUsersTable()
+		public static void FillUsersTable(DataBase db)
 		{
+			string[] firstNames = { "Ivan", "Olena", "Andrii", "Kateryna", "Mykola", "Tetiana", "Oleksandr", "Nataliia" };
+			int fNamesLength = firstNames.Length;
+			string[] lastNames = { "Kovalenko", "Petrenko", "Tkachenko", "Shevchenko", "Melnik", "Moroz", "Sydorenko", "Ivanenko" };
+			int lNamesLength = lastNames.Length;
+			string[] roles = { "Vendor", "Buyer"};
+			for(int i = 0; i < 50; ++i)
+			{
+				string fName = firstNames[r.Next(0, fNamesLength)];
+				string lName = lastNames[r.Next(0, lNamesLength)];
+				string role =  roles[r.Next(0, 2)];
+				string email = $"{fName.ToLower()}.{lName.ToLower()}@gmail.com";
+				DateTime createdAt = DateTime.Now;
+				DateTime birthDate = createdAt.GenerateRandomDate();
+				int balance = r.Next(0, 1001);
+				try
+				{
+					string query = $"INSERT INTO users (first_name, last_name, birth_date, role, email, balance, created_at) values " +
+						$"('{fName}', '{lName}', '{birthDate.ToString("yyyy-MM-dd")}', '{role}', '{email}', {balance}, '{createdAt.ToString("yyyy-MM-dd")}');";
+					db.ExecuteNonQuery(query);
+
+				}
+				catch (DbException ex)
+				{
+                    Console.WriteLine("Error while inserting random data into users: " + ex.Message);
+                }
+            }
 
 		}
 
