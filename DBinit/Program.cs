@@ -7,7 +7,7 @@ namespace DBinit
 	{
 		static void Main(string[] args)
 		{
-			string connectionString = "Host=localhost;Username=postgres;Password=1234;Database=TradePulse;";
+			string connectionString = "Host=surus.db.elephantsql.com;Username=ezzaidoo;Password=VvgDIad5Osco_z1erVN-xhbJ3xuqdBCZ;Database=ezzaidoo;";
 			DataBase db = new DataBase(connectionString);
 			DbInitTask.CreateTables(db);
 		}

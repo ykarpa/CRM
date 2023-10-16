@@ -1,6 +1,5 @@
 ﻿using Npgsql;
 using System.Data.Common;
-using System.Runtime.CompilerServices;
 
 namespace DBinit
 {
