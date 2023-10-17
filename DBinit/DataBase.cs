@@ -1,4 +1,4 @@
-﻿	using Npgsql;
+﻿using Npgsql;
 using System.Data.Common;
 
 namespace DBinit
@@ -55,6 +55,31 @@ namespace DBinit
             {
                 connection.Close();
             }
+        }
+
+        public List<int> GetId(string tableName)
+        {
+            List<int> list = new List<int>();
+            try
+            {
+                connection.Open();
+                var command = new NpgsqlCommand($"SELECT id FROM {tableName}", connection);
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add((int)reader["id"]);
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine($"Database error occurred: {ex.Message}");
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return list;
         }
     }
 }

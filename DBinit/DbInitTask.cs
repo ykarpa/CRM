@@ -59,83 +59,88 @@ namespace DBinit
 
         public static void FillOrdersTable(DataBase db)
         {
-            //string[] payment_types = { "Full prepayment", "Upon receipt" };
-            //string[] delivery_types = { "Self pickup", "Nova Poshta", "Ukrposhta" };
-            //string[] statuses = { "Sent", "Delivered", "Awaiting payment", "Successfully", "Returned" };
+            string[] payment_types = { "Full prepayment", "Upon receipt" };
+            string[] delivery_types = { "Self pickup", "Nova Poshta", "Ukrposhta" };
+            string[] statuses = { "Sent", "Delivered", "Awaiting payment", "Successfully", "Returned" };
+            List<int> receivers_id = db.GetId("user");
 
-            //for (int i = 0; i < 50; ++i)
-            //{
-            //    var receiver_id = db.ExecuteReaderQuery($"SELECT id FROM users;"); //?
+            for (int i = 0; i < 50; ++i)
+            {
+                int receiver_id = receivers_id[r.Next(0, 51)];
 
-            //    double order_price = r.NextDouble() * 1000;
-            //    double order_drop = order_price * 0.95;
-            //    string payment_type = payment_types[r.Next(2)];
-            //    string delivery_type = delivery_types[r.Next(3)];
-            //    string status = statuses[r.Next(5)];
-            //    DateTime createdAt = DateTime.Now;
+                double order_price = r.NextDouble() * 1000;
+                double order_drop = order_price * 0.95;
+                string payment_type = payment_types[r.Next(2)];
+                string delivery_type = delivery_types[r.Next(3)];
+                string status = statuses[r.Next(5)];
+                DateTime createdAt = DateTime.Now;
 
-            //    try
-            //    {
-            //        db.ExecuteNonQuery($"INSERT INTO orders (receiver_id, order_price, order_drop, payment_type, delivery_type, status, created_at) VALUES " +
-            //            $"('{receiver_id}', '{order_price}', '{order_drop}', '{payment_type}', '{delivery_type}', '{status}', '{createdAt.ToString("yyyy-MM-dd")}');");
-            //    }
-            //    catch (DbException ex)
-            //    {
-            //        Console.WriteLine("Error while inserting random data into users: " + ex.Message);
-            //    }
-            //}
+                try
+                {
+                    db.ExecuteNonQuery($"INSERT INTO orders (receiver_id, order_price, order_drop, payment_type, delivery_type, status, created_at) VALUES " +
+                        $"('{receiver_id}', '{order_price}', '{order_drop}', '{payment_type}', '{delivery_type}', '{status}', '{createdAt.ToString("yyyy-MM-dd")}');");
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("Error while inserting random data into users: " + ex.Message);
+                }
+            }
         }
 
 
 
         public static void FillItemsTable(DataBase db)
         {
-            //string[] titles = { "", "" };
-            //string[] descriptions = { "", "" };
-            //string[] models = { "", "" };
+            string[] titles = { "Casio", "Emporio", "Curren" };
+            string[] descriptions = { "Neon display", "Mineral glass", "Stopwatch function", "Durable stainless steel body" };
+            string[] models = { "Armani", "Monreal", "Wild", "MDV-10", "MTP" };
+            List<int> vendors_id = db.GetId("users");
 
-            //for (int i = 0; i < 50; ++i)
-            //{
-            //    //var vendor_id = db.ExecuteReaderQuery($"SELECT id FROM users;"); //?
+            for (int i = 0; i < 50; ++i)
+            {
+                int vendor_id = vendors_id[r.Next(0, 51)];
 
-            //    string title = titles[r.Next(2)];
-            //    string description = descriptions[r.Next(3)];
-            //    string model = models[r.Next(4)];
-            //    double price = r.NextDouble() * 1000;
-            //    int item_available = r.Next(0, 1000);
-            //    DateTime createdAt = DateTime.Now;
+                string title = titles[r.Next(3)];
+                string description = descriptions[r.Next(4)];
+                string model = models[r.Next(5)];
+                double price = r.NextDouble() * 10000;
+                int item_available = r.Next(0, 10000);
+                DateTime createdAt = DateTime.Now;
 
-            //    try
-            //    {
-            //        db.ExecuteNonQuery($"INSERT INTO items (vendor_id, title, description, model, price, item_available, created_at) VALUES " +
-            //            $"('{vendor_id}', '{title}', '{description}', '{model}', '{price}', '{item_available}', '{createdAt.ToString("yyyy-MM-dd")}');");
-            //    }
-            //    catch (DbException ex)
-            //    {
-            //        Console.WriteLine("Error while inserting random data into users: " + ex.Message);
-            //    }
-            //}
+                try
+                {
+                    db.ExecuteNonQuery($"INSERT INTO items (vendor_id, title, description, model, price, item_available, created_at) VALUES " +
+                        $"('{vendor_id}', '{title}', '{description}', '{model}', '{price}', '{item_available}', '{createdAt.ToString("yyyy-MM-dd")}');");
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("Error while inserting random data into users: " + ex.Message);
+                }
+            }
         }
 
         public static void FillOrderItemsTable(DataBase db)
         {
-            //for (int i = 0; i < 50; ++i)
-            //{
-            //    //var order_id = db.ExecuteReaderQuery($"SELECT id FROM order;"); //?
-            //    //var item_id = db.ExecuteReaderQuery($"SELECT id FROM item;"); //?
+            List<int> orders_id = db.GetId("orders");
+            List<int> items_id = db.GetId("items");
 
-            //    int item_count = r.Next(0, 100);
+            for (int i = 0; i < 50; ++i)
+            {
+                int order_id = orders_id[r.Next(0, 51)];
+                int item_id = items_id[r.Next(0, 51)];
 
-            //    try
-            //    {
-            //        db.ExecuteNonQuery($"INSERT INTO order_item (order_id, item_id, item_count) VALUES " +
-            //            $"('{order_id}', '{item_id}', '{item_count}');");
-            //    }
-            //    catch (DbException ex)
-            //    {
-            //        Console.WriteLine("Error while inserting random data into users: " + ex.Message);
-            //    }
-            //}
+                int item_count = r.Next(0, 100);
+
+                try
+                {
+                    db.ExecuteNonQuery($"INSERT INTO order_item (order_id, item_id, item_count) VALUES " +
+                        $"('{order_id}', '{item_id}', '{item_count}');");
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("Error while inserting random data into users: " + ex.Message);
+                }
+            }
         }
 
         public static void FillSubscriptionsTable(DataBase db)
