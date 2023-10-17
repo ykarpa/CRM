@@ -700,19 +700,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yura\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yura\\source\\repos\\Trade-Pulse\\DBinit\\DBinit.csproj",
+      "projectUniqueName": "D:\\UNIVERSITY\\3 курс\\comp_inj\\Trade-Pulse\\DBinit\\DBinit.csproj",
       "projectName": "DBinit",
-      "projectPath": "C:\\Users\\Yura\\source\\repos\\Trade-Pulse\\DBinit\\DBinit.csproj",
-      "packagesPath": "C:\\Users\\Yura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yura\\source\\repos\\Trade-Pulse\\DBinit\\obj\\",
+      "projectPath": "D:\\UNIVERSITY\\3 курс\\comp_inj\\Trade-Pulse\\DBinit\\DBinit.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\UNIVERSITY\\3 курс\\comp_inj\\Trade-Pulse\\DBinit\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -767,7 +767,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -50,3 +50,29 @@ C:\Users\Yura\source\repos\Trade-Pulse\DBinit\obj\Debug\net6.0\refint\DBinit.dll
 C:\Users\Yura\source\repos\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.pdb
 C:\Users\Yura\source\repos\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.genruntimeconfig.cache
 C:\Users\Yura\source\repos\Trade-Pulse\DBinit\obj\Debug\net6.0\ref\DBinit.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\DBinit.exe
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\DBinit.deps.json
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\DBinit.runtimeconfig.json
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\DBinit.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\DBinit.pdb
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\ADO.Net.Client.Annotations.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\ADO.Net.Client.Core.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\Npgsql.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.csproj.AssemblyReference.cache
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.GeneratedMSBuildEditorConfig.editorconfig
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.AssemblyInfoInputs.cache
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.AssemblyInfo.cs
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.csproj.CoreCompileInputs.cache
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.csproj.CopyComplete
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\refint\DBinit.dll
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.pdb
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\DBinit.genruntimeconfig.cache
+D:\UNIVERSITY\3 курс\comp_inj\Trade-Pulse\DBinit\obj\Debug\net6.0\ref\DBinit.dll
