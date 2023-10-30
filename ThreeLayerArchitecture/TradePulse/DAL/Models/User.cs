@@ -15,7 +15,7 @@ namespace DAL.Models
 		public string Role { get; set; } = null!;
 		public string Email { get; set; } = null!;
 		public DateTime CreatedAt { get; set; }
-		public ICollection<Order>? Orders { get; set; }
-		public ICollection<Item>? Item { get; set; }
+		public List<Order>? Orders { get; set; }
+		public List<Item>? Item { get; set; }
 	}
 }

@@ -15,6 +15,6 @@ namespace DAL.Models
 		[ForeignKey("User")]
 		public int VendorId { get; set; }
 		public User Vendor {  get; set; }
-		public ICollection<Order> Orders { get; set; }
+		public List<Order> Orders { get; set; }
 	}
 }

@@ -61,7 +61,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("Items");
+                    b.ToTable("Items", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Order", b =>
@@ -103,7 +103,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("ReceiverId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Payment", b =>
@@ -139,7 +139,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("SenderUserId");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payments", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Subscription", b =>
@@ -169,7 +169,7 @@ namespace DAL.Migrations
 
                     b.HasKey("SubscriptionId");
 
-                    b.ToTable("Subscriptions");
+                    b.ToTable("Subscriptions", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.User", b =>
@@ -204,7 +204,7 @@ namespace DAL.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.UsersSubscriptions", b =>
@@ -226,7 +226,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UsersSubscriptions");
+                    b.ToTable("UsersSubscriptions", (string)null);
                 });
 
             modelBuilder.Entity("ItemOrder", b =>
@@ -241,7 +241,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("OrdersOrderId");
 
-                    b.ToTable("ItemOrder");
+                    b.ToTable("ItemOrder", (string)null);
                 });
 
             modelBuilder.Entity("DAL.Models.Item", b =>
