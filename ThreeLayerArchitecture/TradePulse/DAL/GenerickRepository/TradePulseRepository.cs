@@ -7,7 +7,7 @@ namespace DAL.GenerickRepository
 	{
 		private TradePulseContext context;
 		private DbSet<T> table;
-		public TradePulseRepository() 
+		public TradePulseRepository()
 		{
 			context = new TradePulseContext();
 			table = context.Set<T>();
@@ -15,6 +15,11 @@ namespace DAL.GenerickRepository
 		public async Task Create(T entity)
 		{
 			await this.table.AddAsync(entity);
+		}
+
+		public IQueryable<T> GetQuaryable()
+		{
+			return this.table.AsQueryable<T>();
 		}
 
 		public void Delete(T entity)
