@@ -1,0 +1,88 @@
+﻿<Window x:Class="Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation"
+        mc:Ignorable="d"
+        Title="TradePulse" Height="720" Width="1280" Background="#C4D0E8">
+    <Grid>
+        <!-- Навбар -->
+        <Grid Background="#060542" Height="60" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,0,10,0">
+                <TextBlock Foreground="White" FontSize="16" VerticalAlignment="Center"  Margin="0,0,10,0">LOGO</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10,0,10,0">
+                <TextBox Width="250" Height="30"  Margin="0,0,10,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0">
+                <Button Content="КатегоріЇ" Height="30" Margin="10,0,0,0"/>
+                <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
+                <Button Content="Профіль" Height="30" Margin="10,0,0,0" />
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
+
+        <WrapPanel Margin="30,120,30,0" HorizontalAlignment="Stretch">
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
+                <TextBlock Text="Електроніка та Гаджети" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+            
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Одяг та Взуття" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Побутова Техніка" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
+                <TextBlock Text="Спорт" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
+                <TextBlock Text="Іграшки" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Кухонні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Меблі та Декор" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
+                <TextBlock Text="Книги" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
+                <TextBlock Text="Автомобільні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Садові та Зовнішні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
+                <TextBlock Text="Мистецтво та Рукоділля" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10" Click="AccessoriesButton_Click">
+                <TextBlock Text="Аксесуари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
+            </Button>
+
+
+        </WrapPanel>
+
+    </Grid>
+    
+</Window>
