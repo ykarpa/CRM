@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.GenerickRepository
 {
-	public class TradePulseRepository<T> : IGenerickRepository<T> where T : class
+	public class TradePulseRepository<T> : IGenericRepository<T> where T : class
 	{
 		private TradePulseContext context;
 		private DbSet<T> table;

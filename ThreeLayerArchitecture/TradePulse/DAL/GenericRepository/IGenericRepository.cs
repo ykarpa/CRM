@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.GenerickRepository
 {
-	public interface IGenerickRepository<T>
+	public interface IGenericRepository<T>
 	{
 		public Task<List<T>> GetAll();
 		public Task<T> GetById(int id);
