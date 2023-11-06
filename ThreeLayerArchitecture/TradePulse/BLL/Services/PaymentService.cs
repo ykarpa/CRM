@@ -1,53 +1,48 @@
 ﻿using DAL.GenerickRepository;
 using DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class PaymentService
-    {
-        private IGenericRepository<Payment> paymentRepository;
+	public class PaymentService : IService<Payment>
+	{
+		private IGenericRepository<Payment> paymentRepository;
 
-        public PaymentService(IGenericRepository<Payment> repository)
-        {
-            paymentRepository = repository;
-        }
+		public PaymentService()
+		{
+			paymentRepository = new TradePulseRepository<Payment>();
+		}
 
-        public Task<List<Payment>> GetAll()
-        {
-            return paymentRepository.GetAll();
-        }
+		public Task<List<Payment>> GetAll()
+		{
+			return paymentRepository.GetAll();
+		}
 
-        public Task<Payment> GetPaymentById(int id)
-        {
-            return paymentRepository.GetById(id);
-        }
+		public Task<Payment> GetById(int id)
+		{
+			return paymentRepository.GetById(id);
+		}
 
-        public IQueryable<Payment> GetQuaryable()
-        {
-            return paymentRepository.GetQuaryable();
-        }
+		public IQueryable<Payment> GetQuaryable()
+		{
+			return paymentRepository.GetQuaryable();
+		}
 
-        public void CreatePayment(Payment payment)
-        {
-            paymentRepository.Create(payment);
-            paymentRepository.Save();
-        }
+		public void Create(Payment payment)
+		{
+			paymentRepository.Create(payment);
+			paymentRepository.Save();
+		}
 
-        public void UpdatePayment(Payment payment)
-        {
-            paymentRepository.Update(payment);
-            paymentRepository.Save();
-        }
+		public void Update(Payment payment)
+		{
+			paymentRepository.Update(payment);
+			paymentRepository.Save();
+		}
 
-        public void DeletePayment(Payment payment)
-        {
-            paymentRepository.Delete(payment);
-            paymentRepository.Save();
-        }
-    }
+		public void Delete(Payment payment)
+		{
+			paymentRepository.Delete(payment);
+			paymentRepository.Save();
+		}
+	}
 }

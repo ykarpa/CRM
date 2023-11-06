@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Presentation": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "CONNECTION_STRING": "Host=surus.db.elephantsql.com;Username=ezzaidoo;Password=VvgDIad5Osco_z1erVN-xhbJ3xuqdBCZ;Database=ezzaidoo;"
+      }
+    }
+  }
+}

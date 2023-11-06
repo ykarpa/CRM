@@ -23,6 +23,7 @@ namespace DAL.Data
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
+			//options.UseNpgsql("Host=surus.db.elephantsql.com;Username=ezzaidoo;Password=VvgDIad5Osco_z1erVN-xhbJ3xuqdBCZ;Database=ezzaidoo;");
 			options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
 		}
 		//protected override void OnModelCreating(ModelBuilder modelBuilder)
