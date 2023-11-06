@@ -3,25 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Presentation"
+        xmlns:local="clr-namespace:Presentation" xmlns:navbar="clr-namespace:Presentation.Components"
         mc:Ignorable="d"
         Title="Orders" Height="720" Width="1280" Background="#C4D0E8">
-    
-       <Grid>
-            <!-- Навбар -->
-            <Grid Background="#060542" Height="60" VerticalAlignment="Top">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,0,10,0">
-                    <TextBlock Foreground="White" FontSize="16" VerticalAlignment="Center"  Margin="0,0,10,0">LOGO</TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10,0,10,0">
-                    <TextBox Width="250" Height="30"  Margin="0,0,10,0" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0">
-                <Button Content="КатегоріЇ" Height="30" Margin="10,0,0,0" Click="CategoriesButton_Click"/>
-                    <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
-                    <Button Content="Профіль" Height="30" Margin="10,0,0,0" />
-                </StackPanel>
-            </Grid>
+
+    <Grid>
+        <!-- Навбар -->
+        <navbar:Navbar/>
 
         <TextBlock Text="Аксесуари" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
 
@@ -55,5 +43,5 @@
 
 
     </Grid>
-    
+
 </Window>
