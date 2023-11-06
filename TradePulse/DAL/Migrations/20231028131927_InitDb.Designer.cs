@@ -25,13 +25,13 @@ namespace DAL.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("DAL.Models.Item", b =>
+            modelBuilder.Entity("DAL.Models.Products", b =>
                 {
-                    b.Property<int>("ItemId")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ItemId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProductId"));
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -60,11 +60,11 @@ namespace DAL.Migrations
                     b.Property<int>("VendorId")
                         .HasColumnType("integer");
 
-                    b.HasKey("ItemId");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("VendorId");
 
-                    b.ToTable("Items");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("DAL.Models.Order", b =>
@@ -85,7 +85,7 @@ namespace DAL.Migrations
                     b.Property<decimal>("DropPrice")
                         .HasColumnType("numeric");
 
-                    b.Property<long>("ItemsCount")
+                    b.Property<long>("ProductsCount")
                         .HasColumnType("bigint");
 
                     b.Property<decimal>("OrderPrice")
@@ -159,7 +159,7 @@ namespace DAL.Migrations
                     b.ToTable("ItemOrder");
                 });
 
-            modelBuilder.Entity("DAL.Models.Item", b =>
+            modelBuilder.Entity("DAL.Models.Products", b =>
                 {
                     b.HasOne("DAL.Models.User", "Vendor")
                         .WithMany()
@@ -183,7 +183,7 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("ItemOrder", b =>
                 {
-                    b.HasOne("DAL.Models.Item", null)
+                    b.HasOne("DAL.Models.Products", null)
                         .WithMany()
                         .HasForeignKey("ItemsItemId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -11,10 +11,10 @@ namespace DAL.Models
 		public string PaymentType { get; set; } = null!;
 		public string DeliveryType { get; set; } = null!;
 		public string Status { get; set; } = null!;
-		public uint ItemsCount { get; set; }
+		public uint ProductsCount { get; set; }
 		[ForeignKey("User")]
 		public int ReceiverId { get; set; }
 		public User Receiver { get; set; }
-		public List<Item> Items { get; set; }
+		public List<Product> Products { get; set; }
 	}
 }

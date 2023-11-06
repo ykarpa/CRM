@@ -16,7 +16,7 @@ namespace Presentation
 				{
 					services.AddSingleton<MainWindow>();
 					services.AddTransient<IService<User>, UserService>();
-					services.AddTransient<IService<Item>, ItemService>();
+					services.AddTransient<IService<Product>, ProductService>();
 					services.AddTransient<IService<Order>, OrderService>();
 					services.AddTransient<IService<Payment>, PaymentService>();
 					services.AddTransient<IService<Subscription>, SubscriptionService>();

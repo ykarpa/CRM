@@ -31,7 +31,7 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Items",
+                name: "Products",
                 columns: table => new
                 {
                     ItemId = table.Column<int>(type: "integer", nullable: false)
@@ -95,8 +95,8 @@ namespace DAL.Migrations
                     table.ForeignKey(
                         name: "FK_ItemOrder_Items_ItemsItemId",
                         column: x => x.ItemsItemId,
-                        principalTable: "Items",
-                        principalColumn: "ItemId",
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ItemOrder_Orders_OrdersOrderId",
@@ -113,7 +113,7 @@ namespace DAL.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Items_VendorId",
-                table: "Items",
+                table: "Products",
                 column: "VendorId");
 
             migrationBuilder.CreateIndex(
@@ -129,7 +129,7 @@ namespace DAL.Migrations
                 name: "ItemOrder");
 
             migrationBuilder.DropTable(
-                name: "Items");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Orders");

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL.Models
+﻿namespace DAL.Models
 {
 	public class User
 	{
@@ -16,6 +10,6 @@ namespace DAL.Models
 		public string Email { get; set; } = null!;
 		public DateTime CreatedAt { get; set; }
 		public List<Order>? Orders { get; set; }
-		public List<Item>? Item { get; set; }
+		public List<Product>? Products { get; set; }
 	}
 }

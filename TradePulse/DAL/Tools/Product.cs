@@ -2,9 +2,9 @@
 
 namespace DAL.Models
 {
-	public class Item
+	public class Product
 	{
-		public int ItemId { get; set; }
+		public int ProductId { get; set; }
 		public string Category { get; set; } = null!;
 		public string Title { get; set; } = null!;
 		public string Description { get; set; } = null!;
