@@ -14,7 +14,7 @@ namespace DAL.Models
 		public uint ProductsCount { get; set; }
 		[ForeignKey("User")]
 		public int ReceiverId { get; set; }
-		public User Receiver { get; set; }
-		public List<Product> Products { get; set; }
+		public User? Receiver { get; set; }
+		public List<Product>? Products { get; set; }
 	}
 }

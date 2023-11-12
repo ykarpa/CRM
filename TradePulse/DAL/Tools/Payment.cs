@@ -17,7 +17,7 @@ namespace DAL.Models
 		public uint Amount { get; set; }
 		public string Purpose { get; set; } = null!;
 
-		public User Sender { get; set; }
-		public User Receiver { get; set; }
+		public User? Sender { get; set; }
+		public User? Receiver { get; set; }
 	}
 }

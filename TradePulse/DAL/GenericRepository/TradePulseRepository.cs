@@ -32,7 +32,7 @@ namespace DAL.GenerickRepository
 			return table.ToListAsync();
 		}
 
-		public async Task<T> GetById(int id)
+		public async Task<T?> GetById(int id)
 		{
 			return await table.FindAsync(id);
 		}
