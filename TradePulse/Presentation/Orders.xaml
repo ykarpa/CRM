@@ -3,9 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Presentation" xmlns:navbar="clr-namespace:Presentation.Components"
+        xmlns:local="clr-namespace:Presentation.ViewModels"
+        xmlns:navbar="clr-namespace:Presentation.Components"
         mc:Ignorable="d"
         Title="Orders" Height="720" Width="1280" Background="#C4D0E8">
+
+    <!-- Додайте імпорт для вашого нового простору імен ViewModels -->
+    <Window.DataContext>
+        <local:OrdersViewModel />
+    </Window.DataContext>
 
     <Grid>
         <!-- Навбар -->
@@ -14,34 +20,42 @@
         <TextBlock Text="Аксесуари" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
 
         <!-- Карточки товарів з бази даних -->
-        <ListBox ItemsSource="{Binding Products}" Margin="30,120,30,30">
+        <ListBox ItemsSource="{Binding Products}" Margin="30,120,30,30" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Background="#B0C2E6" Width="250" Height="300" Margin="0,0,10,10">
-                        <!-- Заголовок -->
-                        <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold" Margin="10,10,10,0"/>
-                        <!-- Текст -->
-                        <TextBlock Text="{Binding Description}" Margin="10,5,10,0"/>
-                        <!-- Лінія -->
-                        <Line Stroke="Black" X1="10" Y1="0" X2="240" Y2="0" StrokeThickness="2" Margin="0,5,0,5"/>
-                        <!-- Ціна -->
-                        <TextBlock Text="Ціна" FontSize="18" FontWeight="Bold" Margin="10,5,10,0"/>
-                        <TextBlock Text="{Binding Price}" Margin="10,0,10,0"/>
-                        <!-- Текст1 -->
-                        <TextBlock Text="Текст1: {Binding Text1}" Margin="10,5,10,0"/>
-                        <!-- Текст2 -->
-                        <TextBlock Text="Текст2: {Binding Text2}" Margin="10,0,10,0"/>
-                        <!-- Лінія -->
-                        <Line Stroke="Black" X1="10" Y1="0" X2="240" Y2="0" StrokeThickness="2" Margin="0,5,0,5"/>
-                        <!-- Наявність -->
-                        <TextBlock Text="Наявність: {Binding Availability}" Margin="10,5,10,10"/>
-                    </Grid>
+                    <Border Background="#B0C2E6" Width="250" Height="300" Margin="17" Padding="10">
+                        <StackPanel>
+                            <!-- Заголовок -->
+                            <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="Bold"/>
+                            <!-- Текст -->
+                            <TextBlock Text="{Binding Description}" Margin="0,5,0,0"/>
+                            <!-- Лінія -->
+                            <Line Stroke="Black" X1="0" Y1="5" X2="240" Y2="5" StrokeThickness="2" Margin="0,5,0,5"/>
+                            <!-- Ціна -->
+                            <TextBlock Text="Ціна" FontSize="18" FontWeight="Bold" Margin="0,5,0,0"/>
+                            <TextBlock Text="{Binding Price}" Margin="0,0,0,0"/>
+                            <!-- Текст1 --><!--
+                            <TextBlock Text="Текст1: {Binding Text1}" Margin="0,5,0,0"/>
+                            --><!-- Текст2 --><!--
+                            <TextBlock Text="Текст2: {Binding Text2}" Margin="0,0,0,0"/>-->
+                            <!-- Лінія -->
+                            <Line Stroke="Black" X1="0" Y1="5" X2="240" Y2="5" StrokeThickness="2" Margin="0,5,0,5"/>
+                            <!-- Наявність -->
+                            <TextBlock>
+                            <Run Text="Наявність: "/>
+                            <Run Text="{Binding ItemsAvailable}" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
 
-
     </Grid>
-
 </Window>
