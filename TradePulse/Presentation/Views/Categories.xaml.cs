@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Presentation
+namespace Presentation.Views
 {
-    /// <summary>
-    /// Interaction logic for CardInfo.xaml
-    /// </summary>
-    public partial class CardInfo : Window
-    {
-        public CardInfo()
-        {
-            InitializeComponent();
-        }
+	/// <summary>
+	/// Interaction logic for Categories.xaml
+	/// </summary>
+	public partial class Categories : UserControl
+	{
+		public Categories()
+		{
+			InitializeComponent();
+		}
     }
 }

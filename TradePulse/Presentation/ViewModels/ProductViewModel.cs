@@ -1,10 +1,8 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using DAL.Models;
+﻿using Presentation.Core;
 
 namespace Presentation.ViewModels
 {
-    public class ProductViewModel : INotifyPropertyChanged
+	public class ProductViewModel : ViewModel
     {
         private string _title;
         private string _description;
@@ -20,7 +18,7 @@ namespace Presentation.ViewModels
                 if (_title != value)
                 {
                     _title = value;
-                    OnPropertyChanged();
+                    OnPropertyChange();
                 }
             }
         }
@@ -33,7 +31,7 @@ namespace Presentation.ViewModels
                 if (_description != value)
                 {
                     _description = value;
-                    OnPropertyChanged();
+                    OnPropertyChange();
                 }
             }
         }
@@ -46,7 +44,7 @@ namespace Presentation.ViewModels
                 if (_price != value)
                 {
                     _price = value;
-                    OnPropertyChanged();
+                    OnPropertyChange();
                 }
             }
         }
@@ -59,7 +57,7 @@ namespace Presentation.ViewModels
                 if (_model != value)
                 {
                     _model = value;
-                    OnPropertyChanged();
+                    OnPropertyChange();
                 }
             }
         }
@@ -72,20 +70,9 @@ namespace Presentation.ViewModels
                 if (_itemsAvailable != value)
                 {
                     _itemsAvailable = value;
-                    OnPropertyChanged();
+                    OnPropertyChange();
                 }
             }
         }
-
-        #region INotifyPropertyChanged Members
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }

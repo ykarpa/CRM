@@ -2,7 +2,12 @@
 using DAL.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Presentation.ViewModels;
+using Presentation.Views;
 using System.Windows;
+using Presentation.Core;
+using Presentation.Services;
+using System;
 
 namespace Presentation
 {
@@ -14,7 +19,27 @@ namespace Presentation
 			AppHost = Host.CreateDefaultBuilder()
 				.ConfigureServices((hostContext, services) =>
 				{
-					services.AddSingleton<MainWindow>();
+					services.AddSingleton<MainWindow>(provider => new MainWindow()
+					{
+						DataContext = provider.GetRequiredService<MainViewModel>()
+					});
+					services.AddSingleton<MainViewModel>();
+
+					services.AddSingleton<Categories>(provider => new Categories()
+					{
+						DataContext = provider.GetRequiredService<CategoriesViewModel>()
+					});
+					services.AddSingleton<CategoriesViewModel>();
+
+					services.AddSingleton<Products>(provider => new Products()
+					{
+						DataContext = provider.GetRequiredService<ProductsViewModel>()
+					});
+					services.AddSingleton<ProductsViewModel>();
+
+					services.AddSingleton<INavigationService, NavigationServices>();
+					services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
+					
 					services.AddTransient<IService<User>, UserService>();
 					services.AddTransient<IService<Product>, ProductService>();
 					services.AddTransient<IService<Order>, OrderService>();
