@@ -42,6 +42,7 @@
                             <Run Text="Наявність: "/>
                             <Run Text="{Binding ItemsAvailable}" />
                             </TextBlock>
+                            <Button Content="Деталі" Command="{Binding NavigateToDetails}"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

@@ -36,6 +36,13 @@ namespace Presentation
 						DataContext = provider.GetRequiredService<ProductsViewModel>()
 					});
 					services.AddSingleton<ProductsViewModel>();
+					services.AddSingleton<ProductViewModel>();
+
+					services.AddSingleton<ProductDetails>(provider => new ProductDetails()
+					{
+						DataContext = provider.GetRequiredService<ProductDetailsViewModel>()
+					});
+					services.AddSingleton<ProductDetailsViewModel>();
 
 					services.AddSingleton<INavigationService, NavigationServices>();
 					services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
