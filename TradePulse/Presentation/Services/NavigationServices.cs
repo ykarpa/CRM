@@ -45,7 +45,6 @@ namespace Presentation.Services
 		public void NavigateTo<TViewModel, TParam>(TParam[] props) where TViewModel : ViewModel
 		{
 			ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-			
 			CurrentView = viewModel;
 		}
 		protected void OnPropertyChange([CallerMemberName] string? propertyName = null)

@@ -49,7 +49,7 @@ namespace Presentation.ViewModels
 			InitNavCommand = (id) => new RelayCommand(o => true, o =>
 			{
 				navigation.NavigateTo<ProductDetailsViewModel>();
-				navigation.InitParam<ProductDetailsViewModel, int>("Productd", id);
+				navigation.InitParam<ProductDetailsViewModel, int>("ProductId", id);
 			});
 			Task.Run(LoadProducts);
 		}
