@@ -9,9 +9,9 @@
     <Grid>
         <TextBlock  Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
 
-        <WrapPanel Margin="30,120,30,30" HorizontalAlignment="Stretch">
+        <!--<WrapPanel Margin="30,120,30,30" HorizontalAlignment="Stretch">-->
 
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
+            <!--<Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
                 <TextBlock Text="Електроніка та Гаджети" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black" />
             </Button>
 
@@ -63,8 +63,11 @@
 
             <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10" Command="{Binding NavigateToAccessories}">
                 <TextBlock Text="Аксесуари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-            
-        </WrapPanel>
+            </Button>-->
+
+            <WrapPanel x:Name="CategoriesWrapPanel" Margin="30,120,30,30" HorizontalAlignment="Stretch">
+                
+
+            </WrapPanel>
     </Grid>
 </UserControl>
