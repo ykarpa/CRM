@@ -1,58 +1,51 @@
-﻿using BLL.Services;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using DAL.Models;
+using BLL.Services;
+using System.Linq;
 using Presentation.Core;
 using Presentation.Services;
-using Presentation.Views;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System;
-using System.Linq;
 
 namespace Presentation.ViewModels
 {
     public class CategoriesViewModel : ViewModel
     {
-        private INavigationService _navigation;
+        private ObservableCollection<ProductViewModel> _products;
 
-        public INavigationService Navigation
+        public ObservableCollection<ProductViewModel> Products
         {
-            get => _navigation;
+            get => _products;
             set
             {
-                _navigation = value;
+                _products = value;
                 OnPropertyChange();
             }
         }
 
-        public RelayCommand NavigateToAccessories { get; set; }
-
-        public event EventHandler<List<string>> CategoriesLoaded;
-
-        public async void LoadCategories()
+        public Func<int, RelayCommand> InitNavCommand { get; private set; }
+        public IService<Product> ProductService { get; set; }
+        private async Task LoadCategories()
         {
-            ProductService productService = new ProductService();
-            var categories = productService.GetQuaryable()
-                .Select(p => p.Category)
-                .ToList();
-
-            CategoriesLoaded?.Invoke(this, categories);
+            var products = await ProductService.GetAll();
+            var productViewModels = products.Select(product => new ProductViewModel()
+            {
+                Title = product.Category,
+                NavigateToDetails = InitNavCommand(product.ProductId)
+            });
+            Products = new ObservableCollection<ProductViewModel>(productViewModels);
         }
 
-        public CategoriesViewModel()
+        public CategoriesViewModel(IService<Product> productService, INavigationService navigation)
         {
-            Task.Run(LoadCategories);
-        }
-
-        public CategoriesViewModel(INavigationService navService)
-        {
-            _navigation = navService;
-            this.NavigateToAccessories = new RelayCommand(o => true, o => { Navigation.NavigateTo<ProductsViewModel>(); });
-
+            ProductService = productService;
+            InitNavCommand = (category) => new RelayCommand(o => true, o =>
+            {
+                navigation.NavigateTo<ProductsViewModel>();
+                navigation.InitParam<ProductsViewModel, int>("Category", category);
+            });
             Task.Run(LoadCategories);
         }
     }

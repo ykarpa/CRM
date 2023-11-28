@@ -17,52 +17,22 @@ using System.Windows.Shapes;
 
 namespace Presentation.Views
 {
-	/// <summary>
-	/// Interaction logic for Categories.xaml
-	/// </summary>
-	public partial class Categories : UserControl
-	{
+    /// <summary>
+    /// Interaction logic for Categories.xaml
+    /// </summary>
+    public partial class Categories : UserControl
+    {
         private CategoriesViewModel viewModel;
         public Categories()
-		{
-			InitializeComponent();
-
-			viewModel = new CategoriesViewModel();
-            viewModel.CategoriesLoaded += ViewModel_CategoriesLoaded;
+        {
+            InitializeComponent();
         }
 
-        private void ViewModel_CategoriesLoaded(object sender, List<string> categories)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            WrapPanel categoriesWrapPanel = CategoriesWrapPanel;
-
-            foreach (var category in categories)
+            if (e.ClickCount == 2)
             {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    Button button = new Button
-                    {
-                        Background = new SolidColorBrush(Color.FromArgb(0xB0, 0xC2, 0xE6, 0xFF)),
-                        Width = 250,
-                        Height = 150,
-                        Margin = new Thickness(20, 0, 60, 10),
-                        Content = new TextBlock
-                        {
-                            Text = category,
-                            VerticalAlignment = VerticalAlignment.Center,
-                            HorizontalAlignment = HorizontalAlignment.Center,
-                            FontSize = 18,
-                            Foreground = Brushes.Black
-                        }
-                    };
-
-                    categoriesWrapPanel.Children.Add(button);
-                });
             }
-        }
-
-        private void YourWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            viewModel.LoadCategories();
         }
     }
 }

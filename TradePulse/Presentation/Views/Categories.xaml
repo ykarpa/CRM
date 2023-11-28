@@ -7,67 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="690" d:DesignWidth="1280">
     <Grid>
-        <TextBlock  Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
-
-        <!--<WrapPanel Margin="30,120,30,30" HorizontalAlignment="Stretch">-->
-
-            <!--<Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Електроніка та Гаджети" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black" />
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Одяг та Взуття" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Побутова Техніка" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
-                <TextBlock Text="Спорт" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Іграшки" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Кухонні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Меблі та Декор" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
-                <TextBlock Text="Книги" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Автомобільні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Садові та Зовнішні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Мистецтво та Рукоділля" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10" Command="{Binding NavigateToAccessories}">
-                <TextBlock Text="Аксесуари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>-->
-
-            <WrapPanel x:Name="CategoriesWrapPanel" Margin="30,120,30,30" HorizontalAlignment="Stretch">
-                
-
-            </WrapPanel>
+        <!-- Карточки товарів з бази даних -->
+        <TextBlock Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,10,0,0" Foreground="#FF060542"/>
+        <ListBox ItemsSource="{Binding Products}" Margin="30,60,30,30" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="#B0C2E6" Width="250" Height="300" Margin="17" Padding="0">
+                        <StackPanel>
+                            <Button Background="#B0C2E6" Width="250" Height="300"  Content="{Binding Title}" Command="{Binding NavigateToDetails}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
