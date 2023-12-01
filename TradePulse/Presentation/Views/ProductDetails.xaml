@@ -30,14 +30,6 @@
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal"
                         Margin="0 0 0 10">
-                        <TextBlock Text="Статус:"
-                            FontSize="16"
-                            Margin="0,0,10,0" />
-                        <TextBlock Text="{Binding Product.Status}"
-                            FontSize="16" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
-                        Margin="0 0 0 10">
                         <TextBlock Text="Модель:"
                             FontSize="16"
                             Margin="0,0,10,0" />

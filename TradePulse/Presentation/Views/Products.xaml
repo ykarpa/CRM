@@ -8,8 +8,8 @@
             d:DesignHeight="690" d:DesignWidth="1280">
     <Grid>
         <!-- Карточки товарів з бази даних -->
-        <TextBlock Text="Аксесуари" FontSize="32" FontWeight="SemiBold"  Margin="30,10,0,0" Foreground="#FF060542"/>
-        <ListBox ItemsSource="{Binding Products}" Margin="30,60,30,30" >
+        <TextBlock Text="{Binding Category}" FontSize="32" FontWeight="SemiBold"  Margin="30,10,0,0" Foreground="#FF060542"/>
+        <ListBox ItemsSource="{Binding Products}" Margin="30,60,30,30" Background="#C4D0E8" BorderThickness="0" >
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="4" />
@@ -39,10 +39,12 @@
                             <Line Stroke="Black" X1="0" Y1="5" X2="240" Y2="5" StrokeThickness="2" Margin="0,5,0,5"/>
                             <!-- Наявність -->
                             <TextBlock>
-                            <Run Text="Наявність: "/>
+                            <Run Text="Наявність: " FontWeight="Bold"/>
                             <Run Text="{Binding ItemsAvailable}" />
                             </TextBlock>
-                            <Button Content="Деталі" Command="{Binding NavigateToDetails}"/>
+                            <Button Background="#060542" Height="50" Command="{Binding NavigateToDetails}" Margin="0,80,0,0">
+                                <TextBlock Text="Деталі" Foreground="White" FontWeight="Bold"/>
+                            </Button>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

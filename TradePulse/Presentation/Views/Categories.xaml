@@ -7,64 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="690" d:DesignWidth="1280">
     <Grid>
-        <TextBlock  Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,70,0,0" Foreground="#FF060542"/>
+        <TextBlock  Text="Категорії" FontSize="32" FontWeight="SemiBold"  Margin="30,48,0,0" Foreground="#FF060542"/>
 
-        <WrapPanel Margin="30,120,30,30" HorizontalAlignment="Stretch">
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Електроніка та Гаджети" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black" />
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Одяг та Взуття" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Побутова Техніка" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
-                <TextBlock Text="Спорт" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Іграшки" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Кухонні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Меблі та Декор" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10">
-                <TextBlock Text="Книги" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="20,0,60,10">
-                <TextBlock Text="Автомобільні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Садові та Зовнішні Товари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,60,10">
-                <TextBlock Text="Мистецтво та Рукоділля" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-
-
-            <Button Background="#B0C2E6"  Width="250" Height="150" Margin="0,0,0,10" Command="{Binding NavigateToAccessories}">
-                <TextBlock Text="Аксесуари" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black"/>
-            </Button>
-            
+        <WrapPanel Margin="30,100,30,00" HorizontalAlignment="Stretch">
+            <ListBox ItemsSource="{Binding Categories}" Background="#C4D0E8" BorderThickness="0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Background="#B0C2E6" Width="250" Height="150" Margin="15,0,15,10" Command="{Binding NavigateToProducts}">
+                            <TextBlock Text="{Binding CategoryTitle}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="Black" />
+                        </Button>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </WrapPanel>
     </Grid>
 </UserControl>
