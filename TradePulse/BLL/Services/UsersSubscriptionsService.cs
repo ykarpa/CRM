@@ -11,8 +11,12 @@ namespace BLL.Services
 		{
 			usersSubscriptionsRepository = new TradePulseRepository<UsersSubscriptions>();
 		}
+        public UsersSubscriptionsService(IGenericRepository<UsersSubscriptions>usersSubscriptions)
+        {
+            usersSubscriptionsRepository = usersSubscriptions;
+        }
 
-		public Task<List<UsersSubscriptions>> GetAll()
+        public Task<List<UsersSubscriptions>> GetAll()
 		{
 			return usersSubscriptionsRepository.GetAll();
 		}

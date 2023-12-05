@@ -7,12 +7,15 @@ namespace BLL.Services
 	{
 		private IGenericRepository<Order> orderRepository;
 
-		public OrderService()
+        public OrderService()
 		{
 			orderRepository = new TradePulseRepository<Order>();
 		}
-
-		public Task<List<Order>> GetAll()
+        public OrderService(IGenericRepository<Order> orderService)
+        {
+			orderRepository = orderService;
+        }
+        public Task<List<Order>> GetAll()
 		{
 			return orderRepository.GetAll();
 		}
