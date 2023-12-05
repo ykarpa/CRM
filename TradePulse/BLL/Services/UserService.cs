@@ -11,8 +11,11 @@ namespace BLL.Services
 		{
 			userRepository = new TradePulseRepository<User>();
 		}
-
-		public Task<List<User>> GetAll()
+        public UserService(IGenericRepository<User> userService)
+        {
+            userRepository = userService;
+        }
+        public Task<List<User>> GetAll()
 		{
 			return userRepository.GetAll();
 		}

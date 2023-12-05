@@ -11,8 +11,12 @@ namespace BLL.Services
 		{
 			paymentRepository = new TradePulseRepository<Payment>();
 		}
+        public PaymentService(IGenericRepository<Payment>paymentService)
+        {
+			paymentRepository = paymentService;
+        }
 
-		public Task<List<Payment>> GetAll()
+        public Task<List<Payment>> GetAll()
 		{
 			return paymentRepository.GetAll();
 		}
