@@ -19,10 +19,10 @@ namespace Presentation.ViewModels
 		}
 		private IService<Product> ProductService;
 
-		private Product _product;
+		private Product? _product;
 		public Product Product
 		{
-			get => _product;
+			get => _product!;
 			private set
 			{
 				_product = value;

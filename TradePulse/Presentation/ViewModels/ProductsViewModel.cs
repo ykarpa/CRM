@@ -13,11 +13,11 @@ namespace Presentation.ViewModels
 {
     public class ProductsViewModel : ViewModel
     {
-        private ObservableCollection<ProductViewModel> _products;
+        private ObservableCollection<ProductViewModel>? _products;
 
         public ObservableCollection<ProductViewModel> Products
         {
-            get => _products;
+            get => _products!;
             set
             {
                 _products = value;
@@ -25,10 +25,10 @@ namespace Presentation.ViewModels
             }
         }
 
-        private string _category;
+        private string? _category;
         public string Category
         {
-            get => _category;
+            get => _category!;
             set
             {
                 _category = value;
@@ -36,7 +36,7 @@ namespace Presentation.ViewModels
                 OnPropertyChange();
             }
         }
-
+        
         public Func<int, RelayCommand> InitNavCommand { get; private set; }
         public IService<Product> ProductService { get; set; }
         private async Task LoadProducts(string category = "")
@@ -61,7 +61,7 @@ namespace Presentation.ViewModels
             InitNavCommand = (id) => new RelayCommand(o => true, o =>
             {
                 navigation.NavigateTo<ProductDetailsViewModel>();
-                navigation.InitParam<ProductDetailsViewModel, int>("ProductId", id);
+                navigation.InitParam<ProductDetailsViewModel>(p => p.ProductId = id);
             });
         }
     }
