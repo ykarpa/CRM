@@ -13,5 +13,10 @@ namespace Presentation.Views
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void ProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+			MainGrid.Children.Add(new ProfileModalDialog());
+        }
+    }
 }

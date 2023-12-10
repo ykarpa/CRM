@@ -45,6 +45,14 @@ namespace Presentation
                   });
                   services.AddTransient<ProductDetailsViewModel>();
 
+                  services.AddSingleton<Profile>(provider => new Profile()
+                  {
+                      DataContext = provider.GetRequiredService<ProfileViewModel>()
+                  });
+
+                  services.AddSingleton<ProfileViewModel>();
+
+
                   services.AddSingleton<INavigationService, NavigationServices>();
                   services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
