@@ -48,7 +48,7 @@ namespace Presentation.ViewModels
 
             // Викликати команду для навігації до ProfileViewModel
             Navigation.NavigateTo<ProfileViewModel>();
-            Navigation.InitParam<ProfileViewModel, int>("UserId", userId);
+            Navigation.InitParam<ProfileViewModel>(p => p.UserId = userId);
         }
     }
 }
