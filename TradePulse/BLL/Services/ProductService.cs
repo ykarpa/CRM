@@ -7,11 +7,15 @@ namespace BLL.Services
 	{
 		private readonly IGenericRepository<Product> productRepository;
 
+
         public ProductService()
         {
 			productRepository = new TradePulseRepository<Product>();
 		}
-
+        public ProductService(IGenericRepository<Product> productService)
+        {
+			productRepository = productService;
+        }
         public Task<List<Product>> GetAll()
 		{
 			return productRepository.GetAll();
