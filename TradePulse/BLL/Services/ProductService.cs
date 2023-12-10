@@ -1,4 +1,5 @@
-﻿using DAL.GenerickRepository;
+﻿using BLL.DTOs;
+using DAL.GenerickRepository;
 using DAL.Models;
 
 namespace BLL.Services
@@ -6,8 +7,6 @@ namespace BLL.Services
 	public class ProductService: IService<Product>
 	{
 		private readonly IGenericRepository<Product> productRepository;
-
-
         public ProductService()
         {
 			productRepository = new TradePulseRepository<Product>();
@@ -48,5 +47,37 @@ namespace BLL.Services
 			productRepository.Delete(product);
 			productRepository.Save();
 		}
+
+		public async Task<List<ProductListDTO>> GetProductsList()
+		{
+			return (await this.GetAll()).Select(p => new ProductListDTO()
+			{
+				Title = p.Title,
+				Price = p.Price,
+				Description = p.Description,
+				ItemsAvailable = p.ItemsAvailable,
+				Model = p.Model,
+				ProductId = p.ProductId,
+				Category = p.Category
+			}).ToList();
+		}
+
+		public async Task<ProductDetailsDTO> GetProductDetails(int id)
+		{
+			var product = await this.GetById(id);
+			return new ProductDetailsDTO()
+			{
+				CreatedAt = product.CreatedAt,
+				Description = product.Description,
+				ItemsAvailable = product.ItemsAvailable,
+				Model = product.Model,
+				ProductId = product.ProductId,
+				Price= product.Price,
+				Title = product.Title,
+				VendorId = product.VendorId,
+				Category = product.Category
+			};
+		}
+
 	}
 }

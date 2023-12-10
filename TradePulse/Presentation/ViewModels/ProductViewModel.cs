@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Presentation.Core;
-using Presentation.Services;
+﻿using Presentation.Core;
 
 namespace Presentation.ViewModels
 {

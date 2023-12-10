@@ -13,11 +13,11 @@ namespace Presentation.ViewModels
 {
     public class ProductsViewModel : ViewModel
     {
-        private ObservableCollection<ProductViewModel> _products;
+        private ObservableCollection<ProductViewModel>? _products;
 
         public ObservableCollection<ProductViewModel> Products
         {
-            get => _products;
+            get => _products!;
             set
             {
                 _products = value;
@@ -25,10 +25,10 @@ namespace Presentation.ViewModels
             }
         }
 
-        private string _category;
+        private string? _category;
         public string Category
         {
-            get => _category;
+            get => _category!;
             set
             {
                 _category = value;
@@ -36,12 +36,12 @@ namespace Presentation.ViewModels
                 OnPropertyChange();
             }
         }
-
+        
         public Func<int, RelayCommand> InitNavCommand { get; private set; }
-        public IService<Product> ProductService { get; set; }
+        public ProductService ProductService { get; set; }
         private async Task LoadProducts(string category = "")
         {
-            var products = await ProductService.GetAll();
+            var products = await ProductService.GetProductsList();
 
             var productViewModels = products.Where(p => p.Category == category).Select(product => new ProductViewModel()
             {
@@ -55,13 +55,13 @@ namespace Presentation.ViewModels
             Products = new ObservableCollection<ProductViewModel>(productViewModels);
         }
 
-        public ProductsViewModel(IService<Product> productService, INavigationService navigation)
+        public ProductsViewModel(ProductService productService, INavigationService navigation)
         {
             ProductService = productService;
             InitNavCommand = (id) => new RelayCommand(o => true, o =>
             {
                 navigation.NavigateTo<ProductDetailsViewModel>();
-                navigation.InitParam<ProductDetailsViewModel, int>("ProductId", id);
+                navigation.InitParam<ProductDetailsViewModel>(p => p.ProductId = id);
             });
         }
     }

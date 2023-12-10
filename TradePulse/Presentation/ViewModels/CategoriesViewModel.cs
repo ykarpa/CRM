@@ -51,7 +51,7 @@ namespace Presentation.ViewModels
             this.InitNavCommand = (name) => new RelayCommand(o => true, o =>
             {
                 Navigation.NavigateTo<ProductsViewModel>();
-                Navigation.InitParam<ProductsViewModel, string>("Category", name);
+                Navigation.InitParam<ProductsViewModel>(v => v.Category = name);
             });
             this.categoriesData = new string[]
             {

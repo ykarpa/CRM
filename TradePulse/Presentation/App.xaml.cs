@@ -23,28 +23,27 @@ namespace Presentation
                   {
                       DataContext = provider.GetRequiredService<MainViewModel>()
                   });
-                  services.AddSingleton<MainViewModel>();
+                  services.AddTransient<MainViewModel>();
 
                   services.AddSingleton<Categories>(provider => new Categories()
                   {
                       DataContext = provider.GetRequiredService<CategoriesViewModel>()
                   });
-
-                  services.AddSingleton<CategoriesViewModel>();
-                  services.AddSingleton<CategoryViewModel>();
+                  services.AddTransient<CategoriesViewModel>();
+                  services.AddTransient<CategoryViewModel>();
 
                   services.AddSingleton<Products>(provider => new Products()
                   {
                       DataContext = provider.GetRequiredService<ProductsViewModel>()
                   });
-                  services.AddSingleton<ProductsViewModel>();
-                  services.AddSingleton<ProductViewModel>();
+                  services.AddTransient<ProductsViewModel>();
+                  services.AddTransient<ProductViewModel>();
 
                   services.AddSingleton<ProductDetails>(provider => new ProductDetails()
                   {
                       DataContext = provider.GetRequiredService<ProductDetailsViewModel>()
                   });
-                  services.AddSingleton<ProductDetailsViewModel>();
+                  services.AddTransient<ProductDetailsViewModel>();
 
                   services.AddSingleton<Profile>(provider => new Profile()
                   {
@@ -58,7 +57,7 @@ namespace Presentation
                   services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
                   services.AddTransient<IService<User>, UserService>();
-                  services.AddTransient<IService<Product>, ProductService>();
+                  services.AddTransient<ProductService>();
                   services.AddTransient<IService<Order>, OrderService>();
                   services.AddTransient<IService<Payment>, PaymentService>();
                   services.AddTransient<IService<Subscription>, SubscriptionService>();
