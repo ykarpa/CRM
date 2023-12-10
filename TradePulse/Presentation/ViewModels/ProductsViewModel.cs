@@ -32,7 +32,7 @@ namespace Presentation.ViewModels
             set
             {
                 _category = value;
-                Task.Run(() => LoadProducts(_category));
+                Task.Run(async () => await LoadProducts(_category));
                 OnPropertyChange();
             }
         }
