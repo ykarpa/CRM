@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Presentation.Views"
         mc:Ignorable="d"
         Title="TradePulse" Height="720" Width="1280" Background="#C4D0E8">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
@@ -21,10 +21,10 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0">
                 <Button Name ="CategoryButton" Content="КатегоріЇ" Height="30" Margin="10,0,0,0" Command="{Binding NavigateToCategories}"/>
                 <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
-                <Button Content="Профіль" Height="30" Margin="10,0,0,0" />
+                <Button Name="ProfileButton" Content="Профіль" Height="30" Margin="10,0,0,0"  Command="{Binding NavigateToProfile}"/>
             </StackPanel>
         </Grid>
-        
+
         <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}"></ContentControl>
     </Grid>
 
