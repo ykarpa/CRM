@@ -38,10 +38,10 @@ namespace Presentation.ViewModels
         }
         
         public Func<int, RelayCommand> InitNavCommand { get; private set; }
-        public IService<Product> ProductService { get; set; }
+        public ProductService ProductService { get; set; }
         private async Task LoadProducts(string category = "")
         {
-            var products = await ProductService.GetAll();
+            var products = await ProductService.GetProductsList();
 
             var productViewModels = products.Where(p => p.Category == category).Select(product => new ProductViewModel()
             {
@@ -55,7 +55,7 @@ namespace Presentation.ViewModels
             Products = new ObservableCollection<ProductViewModel>(productViewModels);
         }
 
-        public ProductsViewModel(IService<Product> productService, INavigationService navigation)
+        public ProductsViewModel(ProductService productService, INavigationService navigation)
         {
             ProductService = productService;
             InitNavCommand = (id) => new RelayCommand(o => true, o =>

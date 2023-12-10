@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.DTOs;
+using BLL.Services;
 using DAL.Models;
 using Presentation.Core;
 using System.Threading.Tasks;
@@ -14,13 +15,13 @@ namespace Presentation.ViewModels
 			set
 			{
 				_productId = value;
-				Product = Task.Run(() => ProductService.GetById(_productId)).Result;
+				Product = Task.Run(() => ProductService.GetProductDetails(_productId)).Result;
 			}
 		}
-		private IService<Product> ProductService;
+		private ProductService ProductService;
 
-		private Product? _product;
-		public Product Product
+		private ProductDetailsDTO? _product;
+		public ProductDetailsDTO Product
 		{
 			get => _product!;
 			private set
@@ -30,7 +31,7 @@ namespace Presentation.ViewModels
 			}
 		}
 
-		public ProductDetailsViewModel(IService<Product> productService)
+		public ProductDetailsViewModel(ProductService productService)
 		{
 			ProductService = productService;
 		}

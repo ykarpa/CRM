@@ -49,7 +49,7 @@ namespace Presentation
                   services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
                   services.AddTransient<IService<User>, UserService>();
-                  services.AddTransient<IService<Product>, ProductService>();
+                  services.AddTransient<ProductService>();
                   services.AddTransient<IService<Order>, OrderService>();
                   services.AddTransient<IService<Payment>, PaymentService>();
                   services.AddTransient<IService<Subscription>, SubscriptionService>();
