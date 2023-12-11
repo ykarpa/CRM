@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Presentation.Views.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.Views"
+             mc:Ignorable="d" 
+             Height="690" Width="1280" Background="#a3b4d6">
+    <Grid>
+        <Border Height="490" Background="#C4D0E8" VerticalAlignment="Center" Margin="320,0,320,0" CornerRadius="35">
+            <StackPanel VerticalAlignment="Bottom" Height="490">
+                <!-- Заголовок "Логін" -->
+                <TextBlock Text="Логін" HorizontalAlignment="Center" FontSize="56" FontFamily="Inter" FontWeight="DemiBold" Foreground="#184191" Margin="0,87,0,41"/>
+
+                <!-- Електронна пошта TextBox -->
+                <TextBox Width="378" Height="30" Margin="0,0,0,5"/>
+                <TextBlock Text="Електронна пошта" Width="374" Height="22" Foreground="#184191" FontFamily="Inter"/>
+
+                <!-- Пароль PasswordBox -->
+                <PasswordBox Width="378" Height="30" Margin="0,25,0,5"/>
+                <TextBlock Text="Пароль" Width="374" Height="22" Foreground="#184191" FontFamily="Inter"/>
+
+                <!-- Кнопка для входу -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,70,0,0">
+                    
+                    <TextBlock Text="Немає акаунту?" Height="22" Foreground="#184191" FontFamily="Inter" VerticalAlignment="Center" Margin="10,8,5,0"/>
+                    <Button Content="Зареєструватись" Height="22" BorderThickness="0" Background="Transparent" Foreground="#1361fc" FontFamily="Inter" FontWeight="Bold" Click="RegisterButton_Click"/>
+                    <Border CornerRadius="20" Width="154" Background="#184191" HorizontalAlignment="Right" Margin="43,0,0,0">
+                        <Button Content="Вхід" Width="154" Height="38" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Right" Click="LoginButton_Click"/>
+                    </Border>
+                </StackPanel>
+
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
