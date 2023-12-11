@@ -18,7 +18,7 @@ namespace Presentation.ViewModels
             }
         }
 
-        private readonly IService<User> UserService;
+        private readonly UserService UserService;
 
         private User _user;
         public User User
@@ -31,7 +31,7 @@ namespace Presentation.ViewModels
             }
         }
 
-        public ProfileViewModel(IService<User> userService)
+        public ProfileViewModel(UserService userService)
         {
             UserService = userService;
         }

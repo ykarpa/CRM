@@ -1,4 +1,5 @@
-﻿using DAL.GenerickRepository;
+﻿using BLL.DTOs;
+using DAL.GenerickRepository;
 using DAL.Models;
 
 namespace BLL.Services
@@ -48,5 +49,16 @@ namespace BLL.Services
 			usersSubscriptionsRepository.Delete(usersSubscriptions);
 			usersSubscriptionsRepository.Save();
 		}
-	}
+
+        public async Task<List<UserSubscriptionListDTO>> GetUserSubscriptionsList()
+        {
+            return (await this.GetAll()).Select(us => new UserSubscriptionListDTO()
+            {
+                SubscriptionId = us.SubscriptionId,
+                UserId = us.UserId,
+                Status = us.Status,
+                PaymentDate = us.PaymentDate,
+            }).ToList();
+        }
+    }
 }

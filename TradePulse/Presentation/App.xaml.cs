@@ -61,15 +61,15 @@ namespace Presentation
 				  services.AddSingleton<INavigationService, NavigationServices>();
 				  services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
-				  services.AddTransient<IService<User>, UserService>();
-				  services.AddTransient<ProductService>();
-				  services.AddTransient<IService<Order>, OrderService>();
-				  services.AddTransient<IService<Payment>, PaymentService>();
-				  services.AddTransient<IService<Subscription>, SubscriptionService>();
-				  services.AddTransient<IService<UsersSubscriptions>, UsersSubscriptionsService>();
-			  })
-			  .Build();
-		}
+                  services.AddTransient<UserService>();
+                  services.AddTransient<ProductService>();
+                  services.AddTransient<OrderService>();
+                  services.AddTransient<PaymentService>();
+                  services.AddTransient<SubscriptionService>();
+                  services.AddTransient<UsersSubscriptionsService>();
+              })
+              .Build();
+        }
 
 		protected override async void OnStartup(StartupEventArgs e)
 		{

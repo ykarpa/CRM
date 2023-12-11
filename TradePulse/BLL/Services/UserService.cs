@@ -1,4 +1,5 @@
-﻿using DAL.GenerickRepository;
+﻿using BLL.DTOs;
+using DAL.GenerickRepository;
 using DAL.Models;
 
 namespace BLL.Services
@@ -47,5 +48,32 @@ namespace BLL.Services
 			userRepository.Delete(user);
 			userRepository.Save();
 		}
-	}
+
+        public async Task<List<UserListDTO>> GetUsersList()
+        {
+            return (await this.GetAll()).Select(u => new UserListDTO()
+            {
+                UserId = u.UserId,
+                Email = u.Email,
+                Password = u.Password,
+                FirstName = u.FirstName,
+                LastName = u.LastName
+            }).ToList();
+        }
+
+        public async Task<UserDetailsDTO> GetUserDetails(int id)
+        {
+            var user = await this.GetById(id);
+            return new UserDetailsDTO()
+            {
+                UserId = user.UserId,
+                Email = user.Email,
+                Password = user.Password,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                BirthDate = user.BirthDate,
+                CreatedAt = user.CreatedAt
+            };
+        }
+    }
 }
