@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace Presentation.Views
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Registration.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class Registration : UserControl
     {
-        public Login()
+        public Registration()
         {
             InitializeComponent();
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
         }
 
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)

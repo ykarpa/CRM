@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Presentation.Views.Registration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.Views"
+             mc:Ignorable="d" 
+             Height="690" Width="1280" Background="#a3b4d6">
+    <Grid>
+        <Border Height="490" Background="#C4D0E8" VerticalAlignment="Center" Margin="320,0,320,0" CornerRadius="35">
+            <StackPanel VerticalAlignment="Bottom" Height="490">
+                <!-- Заголовок "Реєстрація" -->
+                <TextBlock Text="Реєстрація" HorizontalAlignment="Center" Height="56" FontSize="56" FontFamily="Inter" FontWeight="DemiBold" Foreground="#184191" Margin="0,35,0,0"/>
+
+                <!-- Ім'я та Прізвище -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,41,0,0">
+                    <TextBox Width="180" Height="28" Margin="0,0,35,0"/>
+                    <TextBox Width="180" Height="28" Margin="35,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="108,2,0,0">
+                    <TextBlock Text="Ім'я" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="0,0,0,0"/>
+                    <TextBlock Text="Прізвище" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="228,0,0,0"/>
+                </StackPanel>
+
+                <!-- Електронна пошта -->
+                <StackPanel HorizontalAlignment="Left" Margin="105,10,0,0" Width="180">
+                    <TextBox Width="180" Height="28" Margin="0,0,0,2"/>
+                    <TextBlock Text="Електронна пошта" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="2,0,0,0"/>
+                </StackPanel>
+
+                <!-- Дата народження -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,12,0,0">
+                    <TextBox Width="112" Height="28" Margin="0,0,23,0"/>
+                    <TextBox Width="112" Height="28" Margin="23,0,23,0"/>
+                    <TextBox Width="112" Height="28" Margin="23,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,2,0,0">
+                    <TextBlock Text="День" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="2,0,0,0"/>
+                    <TextBlock Text="Місяць" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="130,0,0,0"/>
+                    <TextBlock Text="Рік" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="118,0,0,0"/>
+                </StackPanel>
+
+                <!-- Пароль та Повторення паролю -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,8,0,0">
+                    <TextBox Width="180" Height="28" Margin="0,0,35,0"/>
+                    <TextBox Width="180" Height="28" Margin="35,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="105,2,0,0">
+                    <TextBlock Text="Пароль" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="2,0,0,0"/>
+                    <TextBlock Text="Повторіть пароль" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="208,0,0,0"/>
+
+                </StackPanel>
+
+                <!-- Роль -->
+                <StackPanel HorizontalAlignment="Left" Margin="105,10,0,0">
+                    <ComboBox Width="180" Height="28">
+                        <ComboBoxItem>Продавець</ComboBoxItem>
+                        <ComboBoxItem>Покупець</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock Text="Роль" VerticalAlignment="Center" Height="20" Foreground="#184191" FontWeight="DemiBold" FontFamily="Inter" Margin="2,0,0,0"/>
+                </StackPanel>
+
+                <!--Кнопка "Зареєструватися"-->
+                <Border CornerRadius="20" Width="200" Background="#184191" HorizontalAlignment="Right" Margin="0,0,57,0">
+                    <Button Content="Зареєструватися" Width="200" Height="38" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Right" Click="RegistrationButton_Click"/>
+                </Border>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
