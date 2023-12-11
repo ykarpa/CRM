@@ -1,28 +1,11 @@
-﻿using BLL.Services;
-using DAL.Models;
+﻿using Presentation.Services;
 using Presentation.Core;
-using Presentation.Services;
-using System;
+using Presentation.Views;
 
 namespace Presentation.ViewModels
 {
     public class ProfileViewModelModalDialog : ViewModel
     {
-        private string _username;
-
-        public string Username
-        {
-            get => _username;
-            set
-            {
-                _username = value;
-                OnPropertyChange();
-            }
-        }
-
-        public RelayCommand NavigateToProfileCommand { get; private set; }
-        public IService<User> UserService { get; set; }
-
         private INavigationService _navigation;
 
         public INavigationService Navigation
@@ -35,20 +18,18 @@ namespace Presentation.ViewModels
             }
         }
 
-        public ProfileViewModelModalDialog(IService<User> userService, INavigationService navigation)
-        {
-            UserService = userService;
-            _navigation = navigation;
-            NavigateToProfileCommand = new RelayCommand(o => true, o => NavigateToProfile());
-        }
+        public RelayCommand NavigateToProfile { get; set; }
 
-        private void NavigateToProfile()
+        public ProfileViewModelModalDialog(INavigationService navService)
         {
-            int userId = 1; // отримайте ідентифікатор користувача, можливо, з параметрів чи з іншого джерела;
-
-            // Викликати команду для навігації до ProfileViewModel
-            Navigation.NavigateTo<ProfileViewModel>();
-            Navigation.InitParam<ProfileViewModel>(p => p.UserId = userId);
+            _navigation = navService;
+            this.NavigateToProfile = new RelayCommand(o => true, o =>
+            {
+                Navigation.NavigateTo<ProfileViewModel>();
+                //TODO: replace after auth implmentation
+                Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
+            });
         }
     }
+
 }

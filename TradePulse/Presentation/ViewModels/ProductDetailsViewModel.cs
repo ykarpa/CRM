@@ -15,7 +15,7 @@ namespace Presentation.ViewModels
 			set
 			{
 				_productId = value;
-				Product = Task.Run(() => ProductService.GetProductDetails(_productId)).Result;
+				Product = Task.Run(async () => await ProductService.GetProductDetails(_productId)).Result;
 			}
 		}
 		private ProductService ProductService;

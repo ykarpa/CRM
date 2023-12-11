@@ -20,5 +20,8 @@
         <DataTemplate DataType="{x:Type viewModel:ProfileViewModel}">
             <view:Profile/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ProfileViewModelModalDialog}">
+            <view:ProfileModalDialog/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -7,14 +7,14 @@ namespace Presentation.ViewModels
 {
     public class ProfileViewModel : ViewModel
     {
-        private int _userId = 1;
+        private int _userId;
         public int UserId
         {
             get => _userId;
             set
             {
                 _userId = value;
-                LoadUserDataAsync();
+                Task.Run(LoadUserDataAsync);
             }
         }
 
@@ -34,13 +34,10 @@ namespace Presentation.ViewModels
         public ProfileViewModel(IService<User> userService)
         {
             UserService = userService;
-            LoadUserDataAsync();
         }
 
-        private async void LoadUserDataAsync()
+        private async Task LoadUserDataAsync()
         {
-            // Змініть ім'я методу на той, який вам доступний для отримання користувача.
-            // Наприклад, якщо у вас є метод GetById, змініть на GetByIdAsync.
             User = await UserService.GetById(_userId);
         }
     }
