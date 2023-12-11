@@ -11,74 +11,79 @@ using System;
 
 namespace Presentation
 {
-    public partial class App : Application
-    {
-        public static IHost? AppHost { get; private set; }
-        public App()
-        {
-            AppHost = Host.CreateDefaultBuilder()
-              .ConfigureServices((hostContext, services) =>
-              {
-                  services.AddSingleton<MainWindow>(provider => new MainWindow()
-                  {
-                      DataContext = provider.GetRequiredService<MainViewModel>()
-                  });
-                  services.AddTransient<MainViewModel>();
+	public partial class App : Application
+	{
+		public static IHost? AppHost { get; private set; }
+		public App()
+		{
+			AppHost = Host.CreateDefaultBuilder()
+			  .ConfigureServices((hostContext, services) =>
+			  {
+				  services.AddTransient<MainWindow>(provider => new MainWindow()
+				  {
+					  DataContext = provider.GetRequiredService<MainViewModel>()
+				  });
+				  services.AddTransient<MainViewModel>();
 
-                  services.AddSingleton<Categories>(provider => new Categories()
-                  {
-                      DataContext = provider.GetRequiredService<CategoriesViewModel>()
-                  });
-                  services.AddTransient<CategoriesViewModel>();
-                  services.AddTransient<CategoryViewModel>();
+				  services.AddTransient<Categories>(provider => new Categories()
+				  {
+					  DataContext = provider.GetRequiredService<CategoriesViewModel>()
+				  });
+				  services.AddTransient<CategoriesViewModel>();
+				  services.AddTransient<CategoryViewModel>();
 
-                  services.AddSingleton<Products>(provider => new Products()
-                  {
-                      DataContext = provider.GetRequiredService<ProductsViewModel>()
-                  });
-                  services.AddTransient<ProductsViewModel>();
-                  services.AddTransient<ProductViewModel>();
+				  services.AddTransient<Products>(provider => new Products()
+				  {
+					  DataContext = provider.GetRequiredService<ProductsViewModel>()
+				  });
+				  services.AddTransient<ProductsViewModel>();
+				  services.AddTransient<ProductViewModel>();
 
-                  services.AddSingleton<ProductDetails>(provider => new ProductDetails()
-                  {
-                      DataContext = provider.GetRequiredService<ProductDetailsViewModel>()
-                  });
-                  services.AddTransient<ProductDetailsViewModel>();
+				  services.AddTransient<ProductDetails>(provider => new ProductDetails()
+				  {
+					  DataContext = provider.GetRequiredService<ProductDetailsViewModel>()
+				  });
+				  services.AddTransient<ProductDetailsViewModel>();
 
-                  services.AddSingleton<Profile>(provider => new Profile()
-                  {
-                      DataContext = provider.GetRequiredService<ProfileViewModel>()
-                  });
+				  services.AddTransient<Profile>(provider => new Profile()
+				  {
+					  DataContext = provider.GetRequiredService<ProfileViewModel>()
+				  });
+				  services.AddTransient<ProfileViewModel>();
 
-                  services.AddSingleton<ProfileViewModel>();
+				  services.AddTransient<ProfileModalDialog>(provider => new ProfileModalDialog()
+				  {
+					  DataContext = provider.GetRequiredService<ProfileViewModelModalDialog>()
+				  });
+				  services.AddTransient<ProfileViewModelModalDialog>();
 
 
-                  services.AddSingleton<INavigationService, NavigationServices>();
-                  services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
+				  services.AddSingleton<INavigationService, NavigationServices>();
+				  services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
-                  services.AddTransient<IService<User>, UserService>();
-                  services.AddTransient<ProductService>();
-                  services.AddTransient<IService<Order>, OrderService>();
-                  services.AddTransient<IService<Payment>, PaymentService>();
-                  services.AddTransient<IService<Subscription>, SubscriptionService>();
-                  services.AddTransient<IService<UsersSubscriptions>, UsersSubscriptionsService>();
-              })
-              .Build();
-        }
+				  services.AddTransient<IService<User>, UserService>();
+				  services.AddTransient<ProductService>();
+				  services.AddTransient<IService<Order>, OrderService>();
+				  services.AddTransient<IService<Payment>, PaymentService>();
+				  services.AddTransient<IService<Subscription>, SubscriptionService>();
+				  services.AddTransient<IService<UsersSubscriptions>, UsersSubscriptionsService>();
+			  })
+			  .Build();
+		}
 
-        protected override async void OnStartup(StartupEventArgs e)
-        {
-            await AppHost!.StartAsync();
+		protected override async void OnStartup(StartupEventArgs e)
+		{
+			await AppHost!.StartAsync();
 
-            var startupForm = AppHost.Services.GetRequiredService<MainWindow>();
-            startupForm.Show();
+			var startupForm = AppHost.Services.GetRequiredService<MainWindow>();
+			startupForm.Show();
 
-            base.OnStartup(e);
-        }
-        protected override async void OnExit(ExitEventArgs e)
-        {
-            await AppHost!.StopAsync();
-            base.OnExit(e);
-        }
-    }
+			base.OnStartup(e);
+		}
+		protected override async void OnExit(ExitEventArgs e)
+		{
+			await AppHost!.StopAsync();
+			base.OnExit(e);
+		}
+	}
 }

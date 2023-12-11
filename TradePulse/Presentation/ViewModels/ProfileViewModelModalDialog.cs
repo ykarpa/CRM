@@ -26,6 +26,7 @@ namespace Presentation.ViewModels
             this.NavigateToProfile = new RelayCommand(o => true, o =>
             {
                 Navigation.NavigateTo<ProfileViewModel>();
+                //TODO: replace after auth implmentation
                 Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
             });
         }
