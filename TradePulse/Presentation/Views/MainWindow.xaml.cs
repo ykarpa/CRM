@@ -17,10 +17,8 @@ namespace Presentation.Views
 		{
 			try
 			{
-				MainViewModel ctx = (MainViewModel)this.DataContext!;
-				ProfileModalDialog modal = ctx.ProfileDialog;
-				MainGrid.Children.Add(modal);
-			}
+                profileDialog.Visibility = (profileDialog.Visibility == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+            }
 			catch
 			{
 				return;

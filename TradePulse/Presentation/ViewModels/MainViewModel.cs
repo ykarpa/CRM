@@ -30,15 +30,19 @@ namespace Presentation.ViewModels
 			}
 		}
 
-
 		public RelayCommand NavigateToCategories { get; set; }
-		public RelayCommand NavigateToModalDialog { get; set; }
+        public RelayCommand NavigateToProfile { get; set; }
 
-		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
+        public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
 			_navigation = navService;
 			this.NavigateToCategories = new RelayCommand(o => true, o => { Navigation.NavigateTo<CategoriesViewModel>(); });
-			ProfileDialog = _profileDialog;
-		}
+            this.NavigateToProfile = new RelayCommand(o => true, o =>
+            {
+                Navigation.NavigateTo<ProfileViewModel>();
+                //TODO: replace after auth implmentation
+                Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
+            });
+        }
 	}
 }

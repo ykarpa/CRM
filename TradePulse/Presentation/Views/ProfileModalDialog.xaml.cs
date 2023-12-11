@@ -18,5 +18,9 @@ namespace Presentation.Views
         {
             this.Visibility = Visibility.Collapsed;
         }
+        private void NavigateToProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }

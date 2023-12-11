@@ -23,11 +23,10 @@
                 <Button Name ="CategoryButton" Content="КатегоріЇ" Height="30" Margin="10,0,0,0" Command="{Binding NavigateToCategories}"/>
                 <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
                 <Button Name="ProfileButton" Content="Профіль" Height="30" Margin="10,0,0,0" Click="ProfileButton_Click"/>
-                <!--<Button Name="ProfileButton" Content="Профіль" Height="30" Margin="10,0,0,0"  Command="{Binding NavigateToProfile}"/>-->
             </StackPanel>
         </Grid>
-
-        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}"></ContentControl>
+        <local:ProfileModalDialog x:Name="profileDialog"  Grid.Row="1" Visibility="Hidden" Panel.ZIndex="999"/>
+        <ContentControl Grid.Row="2" Content="{Binding Navigation.CurrentView}"></ContentControl>
     </Grid>
 
 </Window>
