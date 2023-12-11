@@ -19,17 +19,28 @@ namespace Presentation.ViewModels
 		}
 
 		public RelayCommand NavigateToCategories { get; set; }
-		public RelayCommand NavigateToProfile { get; set; }
+		public RelayCommand NavigateToModalDialog { get; set; }
+		//public RelayCommand NavigateToProfile { get; set; }
 
 		public MainViewModel(INavigationService navService)
 		{
 			_navigation = navService;
 			this.NavigateToCategories = new RelayCommand(o => true, o => { Navigation.NavigateTo<CategoriesViewModel>(); });
-			this.NavigateToProfile = new RelayCommand(o => true, o =>
+			this.NavigateToModalDialog = new RelayCommand(o => true, o =>
 			{
-				Navigation.NavigateTo<ProfileViewModel>();
-				Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
+				//Navigation.NavigateTo<ProfileViewModel>();
+				Navigation.NavigateTo<ProfileViewModelModalDialog>();
+
+				//Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
 			});
+			
+			//this.NavigateToProfile = new RelayCommand(o => true, o =>
+			//{
+			//	Navigation.NavigateTo<ProfileViewModel>();
+			//	//Navigation.NavigateTo<ProfileViewModelModalDialog>();
+
+			//	Navigation.InitParam<ProfileViewModel>(p => p.UserId = 1);
+			//});
 		}
 	}
 }

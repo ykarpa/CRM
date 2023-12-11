@@ -18,5 +18,6 @@ namespace Presentation.Views
         {
 			MainGrid.Children.Add(new ProfileModalDialog());
         }
+
     }
 }
