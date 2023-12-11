@@ -1,5 +1,4 @@
 ﻿using Presentation.ViewModels;
-using System;
 using System.Windows;
 
 namespace Presentation.Views
@@ -14,9 +13,18 @@ namespace Presentation.Views
 			InitializeComponent();
 		}
 
-        private void ProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-			MainGrid.Children.Add(new ProfileModalDialog());
-        }
-    }
+		private void ProfileButton_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				MainViewModel ctx = (MainViewModel)this.DataContext!;
+				ProfileModalDialog modal = ctx.ProfileDialog;
+				MainGrid.Children.Add(modal);
+			}
+			catch
+			{
+				return;
+			}
+		}
+	}
 }

@@ -19,7 +19,7 @@
                     <RowDefinition Height="15"/>    
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" Content="Мій профіль" Background="White"  Grid.RowSpan="2" BorderThickness="0" />
+                <Button Grid.Row="0" Content="Мій профіль" Background="White" Grid.RowSpan="2" BorderThickness="0" Command="{Binding NavigateToProfile}"/>
                 <Separator Grid.Row="1" BorderThickness="1" BorderBrush="Silver"/>
                 <TextBlock Grid.Row="2" Text="Фінанси"/>
             </Grid>

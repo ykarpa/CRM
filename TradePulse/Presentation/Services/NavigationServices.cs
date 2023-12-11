@@ -68,26 +68,5 @@ namespace Presentation.Services
 				MessageBox.Show("Some Error Occured (", "Navigation error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
-
-		//public void InitParam<TView, TParam>(string propertyName, TParam value) where TView : ViewModel
-		//{
-		//	try
-		//	{
-		//		if (CurrentView is null)
-		//		{
-		//			return;
-		//		}
-		//		var prop = CurrentView.GetType().GetProperties().Where(p => p.Name.ToLower() == propertyName.ToLower()).FirstOrDefault();
-		//		if (prop is null)
-		//		{
-		//			throw new InvalidOperationException("Property is not defined");
-		//		}
-		//		prop.SetValue(CurrentView, value, null);
-		//	}
-		//	catch 
-		//	{
-		//		MessageBox.Show("Some Error Occured (", "Navigation error", MessageBoxButton.OK, MessageBoxImage.Error);
-		//	}
-		//}
 	}
 }
