@@ -1,4 +1,5 @@
-﻿using DAL.GenerickRepository;
+﻿using BLL.DTOs;
+using DAL.GenerickRepository;
 using DAL.Models;
 
 namespace BLL.Services
@@ -48,5 +49,30 @@ namespace BLL.Services
 			paymentRepository.Delete(payment);
 			paymentRepository.Save();
 		}
-	}
+
+        public async Task<List<PaymentListDTO>> GetPaymentsList()
+        {
+            return (await this.GetAll()).Select(p => new PaymentListDTO()
+            {
+                PaymentId = p.PaymentId,
+                From = p.From,
+                To = p.To,
+                Amount = p.Amount,
+                Purpose = p.Purpose
+            }).ToList();
+        }
+
+        //public async Task<PaymentListDTO> GetPaymentDetails(int id)
+        //{
+        //    var payment = await this.GetById(id);
+        //    return new PaymentListDTO()
+        //    {
+        //        PaymentId = payment.PaymentId,
+        //        From = payment.From,
+        //        To = payment.To,
+        //        Amount = payment.Amount,
+        //        Purpose = payment.Purpose
+        //    };
+        //}
+    }
 }
