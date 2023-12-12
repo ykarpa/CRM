@@ -1,7 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using Presentation.Core;
@@ -38,11 +36,6 @@ namespace Presentation.Services
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 		public void NavigateTo<TViewModel>() where TViewModel : ViewModel
-		{
-			ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-			CurrentView = viewModel;
-		}
-		public void NavigateTo<TViewModel, TParam>(TParam[] props) where TViewModel : ViewModel
 		{
 			ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
 			CurrentView = viewModel;

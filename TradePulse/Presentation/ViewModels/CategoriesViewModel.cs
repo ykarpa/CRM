@@ -1,13 +1,12 @@
 ﻿using Presentation.Core;
 using Presentation.Services;
-using Presentation.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Presentation.ViewModels
 {
-    public class CategoriesViewModel : ViewModel
+	public class CategoriesViewModel : ViewModel
     {
         private ObservableCollection<CategoryViewModel> _categories;
 

@@ -9,13 +9,13 @@ namespace Presentation.Core
 
 		private readonly Predicate<object> _canExecute;
 		private readonly Action<object> _execute;
-        public RelayCommand(Predicate<object> canExec, Action<object> exec)
+		public RelayCommand(Predicate<object> canExec, Action<object> exec)
 		{
-            this._canExecute = canExec;
+			this._canExecute = canExec;
 			this._execute = exec;
-        }
+		}
 
-        event EventHandler? ICommand.CanExecuteChanged
+		event EventHandler? ICommand.CanExecuteChanged
 		{
 			add => CommandManager.RequerySuggested += value;
 			remove => CommandManager.RequerySuggested -= value;

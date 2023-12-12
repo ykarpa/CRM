@@ -1,6 +1,7 @@
 ﻿using Presentation.Services;
 using Presentation.Core;
 using Presentation.Views;
+using System.Windows;
 
 namespace Presentation.ViewModels
 {
@@ -29,10 +30,26 @@ namespace Presentation.ViewModels
 				OnPropertyChange();
 			}
 		}
+		private Visibility _visibility = Visibility.Hidden;
 
-
+		public Visibility NavButtonsVisibility
+		{
+			get => _visibility;
+			set
+			{
+				_visibility = value;
+				OnPropertyChange();
+			}
+		}
+		public void ShowNavBarButtons() 
+		{
+			NavButtonsVisibility = Visibility.Visible;
+		}
+		public void HideNavBarButtons()
+		{
+			NavButtonsVisibility = Visibility.Hidden;
+		}
 		public RelayCommand NavigateToCategories { get; set; }
-		public RelayCommand NavigateToModalDialog { get; set; }
 
 		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
