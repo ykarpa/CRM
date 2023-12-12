@@ -50,12 +50,17 @@ namespace Presentation.ViewModels
 			NavButtonsVisibility = Visibility.Hidden;
 		}
 		public RelayCommand NavigateToCategories { get; set; }
+		public RelayCommand NavigateToProfile { get; private set; }
 
 		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
 			_navigation = navService;
 			this.NavigateToCategories = new RelayCommand(o => true, o => { Navigation.NavigateTo<CategoriesViewModel>(); });
-			ProfileDialog = _profileDialog;
-		}
+            this.NavigateToProfile = new RelayCommand(o => true, o =>
+            {
+                Navigation.NavigateTo<ProfileViewModel>();
+                Navigation.InitParam<ProfileViewModel>(p => p.User = AuthService.CurrentUser);
+            });
+        }
 	}
 }
