@@ -65,7 +65,7 @@
 
                 <!--Кнопка "Зареєструватися"-->
                 <Border CornerRadius="20" Width="200" Background="#184191" HorizontalAlignment="Right" Margin="0,0,57,0">
-                    <Button Content="Зареєструватися" Width="200" Height="38" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Right" Click="RegistrationButton_Click"/>
+                    <Button Content="Зареєструватися" Width="200" Height="38" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Right"/>
                 </Border>
 
             </StackPanel>

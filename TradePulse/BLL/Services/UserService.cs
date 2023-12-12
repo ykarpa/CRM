@@ -1,6 +1,7 @@
 ﻿using BLL.DTOs;
 using DAL.GenerickRepository;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BLL.Services
 {
@@ -61,9 +62,13 @@ namespace BLL.Services
             }).ToList();
         }
 
-        public async Task<UserDetailsDTO> GetUserDetails(int id)
+        public async Task<UserDetailsDTO>? GetUserDetails(int id)
         {
             var user = await this.GetById(id);
+			if(user == null)
+			{
+				return null!;
+			}
             return new UserDetailsDTO()
             {
                 UserId = user.UserId,
@@ -72,8 +77,30 @@ namespace BLL.Services
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 BirthDate = user.BirthDate,
-                CreatedAt = user.CreatedAt
+                CreatedAt = user.CreatedAt,
+				Role = user.Role
             };
         }
-    }
+
+		public async Task<UserDetailsDTO>? GetUserDetailsByEmail(string email)
+		{
+
+			var user = await Task.Run(() => GetQuaryable().Where(u => u.Email == email).FirstOrDefaultAsync());
+			if (user == null)
+			{
+				return null!;
+			}
+			return new UserDetailsDTO()
+			{
+				UserId = user.UserId,
+				Email = user.Email,
+				Password = user.Password,
+				FirstName = user.FirstName,
+				LastName = user.LastName,
+				BirthDate = user.BirthDate,
+				CreatedAt = user.CreatedAt,
+				Role = user.Role
+			};
+		}
+	}
 }

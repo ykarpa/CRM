@@ -19,7 +19,7 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10,0,10,0">
                 <TextBox Width="250" Height="30"  Margin="0,0,10,0" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0" Visibility="{Binding NavButtonsVisibility}">
                 <Button Name ="CategoryButton" Content="КатегоріЇ" Height="30" Margin="10,0,0,0" Command="{Binding NavigateToCategories}"/>
                 <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
                 <Button Name="ProfileButton" Content="Профіль" Height="30" Margin="10,0,0,0" Click="ProfileButton_Click"/>

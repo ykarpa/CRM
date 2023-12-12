@@ -23,5 +23,11 @@
         <DataTemplate DataType="{x:Type viewModel:ProfileViewModelModalDialog}">
             <view:ProfileModalDialog/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+            <view:Login/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:RegistrationViewModel}">
+            <view:Registration/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
