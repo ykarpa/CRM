@@ -1,44 +1,48 @@
-﻿using BLL.Services;
-using DAL.Models;
-using Presentation.Core;
-using System.Threading.Tasks;
+﻿// <copyright file="ProfileViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.ViewModels
 {
+    using System.Threading.Tasks;
+    using BLL.Services;
+    using DAL.Models;
+    using Presentation.Core;
+
     public class ProfileViewModel : ViewModel
     {
+        private readonly UserService userService;
         private int _userId;
-        public int UserId
-        {
-            get => _userId;
-            set
-            {
-                _userId = value;
-                Task.Run(LoadUserDataAsync);
-            }
-        }
-
-        private readonly UserService UserService;
-
-        private User _user;
-        public User User
-        {
-            get => _user;
-            private set
-            {
-                _user = value;
-                OnPropertyChange(nameof(User));
-            }
-        }
+        private User? _user;
 
         public ProfileViewModel(UserService userService)
         {
-            UserService = userService;
+            this.userService = userService;
+        }
+
+        public int UserId
+        {
+            get => this._userId;
+            set
+            {
+                this._userId = value;
+                Task.Run(this.LoadUserDataAsync);
+            }
+        }
+
+        public User? User
+        {
+            get => this._user;
+            private set
+            {
+                this._user = value;
+                this.OnPropertyChange(nameof(this.User));
+            }
         }
 
         private async Task LoadUserDataAsync()
         {
-            User = await UserService.GetById(_userId);
+            this.User = await this.userService.GetById(this._userId);
         }
     }
 }

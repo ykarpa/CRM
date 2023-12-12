@@ -1,72 +1,73 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using Presentation.Core;
+﻿// <copyright file="NavigationServices.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.Services
 {
-	public interface INavigationService
-	{
-		ViewModel CurrentView { get; }
-		void NavigateTo<T>() where T : ViewModel;
-		void InitParam<TView>(Action<TView> initFunc) where TView : ViewModel;
-	}
-	public class NavigationServices : INotifyPropertyChanged, INavigationService
-	{
-		private ViewModel _currentView;
+    using System;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+    using System.Windows;
+    using Presentation.Core;
 
-		public ViewModel CurrentView
-		{
-			get => _currentView;
-			private set
-			{
-				_currentView = value;
-				OnPropertyChange();
-			}
-		}
+    public class NavigationServices : INotifyPropertyChanged, INavigationService
+    {
+        private ViewModel _currentView;
 
-		public Func<Type, ViewModel> _viewModelFactory { get; }
+        public ViewModel CurrentView
+        {
+            get => this._currentView;
+            private set
+            {
+                this._currentView = value;
+                this.OnPropertyChange();
+            }
+        }
 
-		public NavigationServices(Func<Type, ViewModel> viewModelFactory)
-		{
-			_viewModelFactory = viewModelFactory;
-		}
+        public Func<Type, ViewModel> _viewModelFactory { get; }
 
-		public event PropertyChangedEventHandler? PropertyChanged;
+        public NavigationServices(Func<Type, ViewModel> viewModelFactory)
+        {
+            this._viewModelFactory = viewModelFactory;
+        }
 
-		public void NavigateTo<TViewModel>() where TViewModel : ViewModel
-		{
-			ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-			CurrentView = viewModel;
-		}
-		public void NavigateTo<TViewModel, TParam>(TParam[] props) where TViewModel : ViewModel
-		{
-			ViewModel viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-			CurrentView = viewModel;
-		}
-		protected void OnPropertyChange([CallerMemberName] string? propertyName = null)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-		public void InitParam<TView>(Action<TView> initFunc) where TView : ViewModel
-		{
-			try
-			{
-				if (CurrentView is null)
-				{
-					return;
-				}
+        public void NavigateTo<TViewModel>()
+            where TViewModel : ViewModel
+        {
+            ViewModel viewModel = this._viewModelFactory.Invoke(typeof(TViewModel));
+            this.CurrentView = viewModel;
+        }
 
-				initFunc((TView)CurrentView);
-			}
-			catch
-			{
-				MessageBox.Show("Some Error Occured (", "Navigation error", MessageBoxButton.OK, MessageBoxImage.Error);
-			}
-		}
-	}
+        public void NavigateTo<TViewModel, TParam>(TParam[] props)
+            where TViewModel : ViewModel
+        {
+            ViewModel viewModel = this._viewModelFactory.Invoke(typeof(TViewModel));
+            this.CurrentView = viewModel;
+        }
+
+        public void InitParam<TView>(Action<TView> initFunc)
+            where TView : ViewModel
+        {
+            try
+            {
+                if (this.CurrentView is null)
+                {
+                    return;
+                }
+
+                initFunc((TView)this.CurrentView);
+            }
+            catch
+            {
+                MessageBox.Show("Some Error Occured (", "Navigation error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        protected void OnPropertyChange([CallerMemberName] string? propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
 }

@@ -1,33 +1,44 @@
-﻿using DAL.Models;
-using Microsoft.EntityFrameworkCore;
+﻿// <copyright file="TradePulseContext.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace DAL.Data
 {
-	public class TradePulseContext: DbContext
-	{
-		public TradePulseContext() : base()
-		{
+    using DAL.Models;
+    using Microsoft.EntityFrameworkCore;
 
-		}
-		public TradePulseContext(DbContextOptions<TradePulseContext> options) : base(options) 
-		{
-			
-		}
-		
-		public DbSet<User> Users { get; set; }
-		public DbSet<Order> Orders { get; set; }
-		public DbSet<Product> Products { get; set; }
-		public DbSet<Payment> Payments { get; set; }
-		public DbSet<Subscription> Subscriptions { get; set; }
-		public DbSet<UsersSubscriptions> UsersSubscriptions { get; set; }
+    public class TradePulseContext : DbContext
+    {
+        public TradePulseContext()
+            : base()
+        {
+        }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder options)
-		{
-			options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
-		}
-		//protected override void OnModelCreating(ModelBuilder modelBuilder)
-		//{
-		//	modelBuilder.Entity<OrderItems>(builder => builder.HasNoKey());
-		//}
-	}
+        public TradePulseContext(DbContextOptions<TradePulseContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<Subscription> Subscriptions { get; set; }
+
+        public DbSet<UsersSubscriptions> UsersSubscriptions { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseNpgsql(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
+        }
+
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        // modelBuilder.Entity<OrderItems>(builder => builder.HasNoKey());
+        // }
+    }
 }

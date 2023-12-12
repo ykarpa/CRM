@@ -1,11 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+﻿// <copyright file="20231028134739_AddedAllModels.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 #nullable disable
 
 namespace DAL.Migrations
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+    using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
     /// <inheritdoc />
     public partial class AddedAllModels : Migration
     {
@@ -23,7 +27,7 @@ namespace DAL.Migrations
                     Amount = table.Column<long>(type: "bigint", nullable: false),
                     Purpose = table.Column<string>(type: "text", nullable: false),
                     SenderUserId = table.Column<int>(type: "integer", nullable: false),
-                    ReceiverUserId = table.Column<int>(type: "integer", nullable: false)
+                    ReceiverUserId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -52,7 +56,7 @@ namespace DAL.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
                     AllowedItemsCount = table.Column<long>(type: "bigint", nullable: false),
-                    Term = table.Column<TimeSpan>(type: "interval", nullable: false)
+                    Term = table.Column<TimeSpan>(type: "interval", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -66,7 +70,7 @@ namespace DAL.Migrations
                     Status = table.Column<string>(type: "text", nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UserId = table.Column<int>(type: "integer", nullable: false),
-                    SubscriptionId = table.Column<int>(type: "integer", nullable: false)
+                    SubscriptionId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

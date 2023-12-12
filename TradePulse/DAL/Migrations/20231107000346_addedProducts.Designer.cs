@@ -13,7 +13,7 @@ namespace DAL.Migrations
 {
     [DbContext(typeof(TradePulseContext))]
     [Migration("20231107000346_addedProducts")]
-    partial class addedProducts
+    partial class AddedProducts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

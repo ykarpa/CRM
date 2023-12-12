@@ -1,44 +1,47 @@
-﻿using Presentation.Services;
-using Presentation.Core;
-using Presentation.Views;
+﻿// <copyright file="MainViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.ViewModels
 {
-	public class MainViewModel : ViewModel
-	{
-		private INavigationService _navigation;
+    using Presentation.Core;
+    using Presentation.Services;
+    using Presentation.Views;
 
-		public INavigationService Navigation
-		{
-			get => _navigation;
-			set
-			{
-				_navigation = value;
-				OnPropertyChange();
-			}
-		}
+    public class MainViewModel : ViewModel
+    {
+        private INavigationService _navigation;
+        private ProfileModalDialog profileDialog;
 
-		private ProfileModalDialog profileDialog;
+        public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
+        {
+            this._navigation = navService;
+            this.NavigateToCategories = new RelayCommand(o => true, o => { this.Navigation.NavigateTo<CategoriesViewModel>(); });
+            this.ProfileDialog = _profileDialog;
+        }
 
-		public ProfileModalDialog ProfileDialog
-		{
-			get => profileDialog;
-			set
-			{
-				profileDialog = value;
-				OnPropertyChange();
-			}
-		}
+        public INavigationService Navigation
+        {
+            get => this._navigation;
+            set
+            {
+                this._navigation = value;
+                this.OnPropertyChange();
+            }
+        }
 
+        public ProfileModalDialog ProfileDialog
+        {
+            get => this.profileDialog;
+            set
+            {
+                this.profileDialog = value;
+                this.OnPropertyChange();
+            }
+        }
 
-		public RelayCommand NavigateToCategories { get; set; }
-		public RelayCommand NavigateToModalDialog { get; set; }
+        public RelayCommand NavigateToCategories { get; set; }
 
-		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
-		{
-			_navigation = navService;
-			this.NavigateToCategories = new RelayCommand(o => true, o => { Navigation.NavigateTo<CategoriesViewModel>(); });
-			ProfileDialog = _profileDialog;
-		}
-	}
+        public RelayCommand NavigateToModalDialog { get; set; }
+    }
 }

@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-
+﻿// <copyright file="20231107000346_addedProducts.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 #nullable disable
 
 namespace DAL.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+    using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
     /// <inheritdoc />
     public partial class addedProducts : Migration
     {
@@ -14,37 +17,37 @@ namespace DAL.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ItemOrder");
-			migrationBuilder.CreateTable(
-				name: "Products",
-				columns: table => new
-				{
-					ProductId = table.Column<int>(type: "integer", nullable: false)
-						.Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-					Category = table.Column<string>(type: "text", nullable: false),
-					Title = table.Column<string>(type: "text", nullable: false),
-					Description = table.Column<string>(type: "text", nullable: false),
-					Model = table.Column<string>(type: "text", nullable: true),
-					Price = table.Column<decimal>(type: "numeric", nullable: false),
-					ItemsAvailable = table.Column<long>(type: "bigint", nullable: false),
-					CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-					VendorId = table.Column<int>(type: "integer", nullable: false)
-				},
-				constraints: table =>
-				{
-					table.PrimaryKey("PK_Items", x => x.ProductId);
-					table.ForeignKey(
-						name: "FK_Items_Users_VendorId",
-						column: x => x.VendorId,
-						principalTable: "Users",
-						principalColumn: "UserId",
-						onDelete: ReferentialAction.Cascade);
-				});
-			migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Category = table.Column<string>(type: "text", nullable: false),
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Model = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false),
+                    ItemsAvailable = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    VendorId = table.Column<int>(type: "integer", nullable: false),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Items", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_Items_Users_VendorId",
+                        column: x => x.VendorId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+            migrationBuilder.CreateTable(
                 name: "OrderProduct",
                 columns: table => new
                 {
                     OrdersOrderId = table.Column<int>(type: "integer", nullable: false),
-                    ProductsProductId = table.Column<int>(type: "integer", nullable: false)
+                    ProductsProductId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -80,7 +83,7 @@ namespace DAL.Migrations
                 columns: table => new
                 {
                     ItemsItemId = table.Column<int>(type: "integer", nullable: false),
-                    OrdersOrderId = table.Column<int>(type: "integer", nullable: false)
+                    OrdersOrderId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

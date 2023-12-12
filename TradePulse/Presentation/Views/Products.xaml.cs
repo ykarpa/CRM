@@ -1,17 +1,19 @@
-﻿using Presentation.ViewModels;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿// <copyright file="Products.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.Views
 {
-	/// <summary>
-	/// Interaction logic for Products.xaml
-	/// </summary>
-	public partial class Products : UserControl
+    using System.Windows.Controls;
+
+    /// <summary>
+    /// Interaction logic for Products.xaml.
+    /// </summary>
+    public partial class Products : UserControl
     {
         public Products()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

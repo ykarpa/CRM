@@ -1,39 +1,43 @@
-﻿using BLL.DTOs;
-using BLL.Services;
-using DAL.Models;
-using Presentation.Core;
-using System.Threading.Tasks;
+﻿// <copyright file="ProductDetailsViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.ViewModels
 {
-	public class ProductDetailsViewModel : ViewModel
-	{
-		private int _productId;
-		public int ProductId
-		{
-			get => _productId;
-			set
-			{
-				_productId = value;
-				Product = Task.Run(async () => await ProductService.GetProductDetails(_productId)).Result;
-			}
-		}
-		private ProductService ProductService;
+    using System.Threading.Tasks;
+    using BLL.DTOs;
+    using BLL.Services;
+    using Presentation.Core;
 
-		private ProductDetailsDTO? _product;
-		public ProductDetailsDTO Product
-		{
-			get => _product!;
-			private set
-			{
-				_product = value;
-				OnPropertyChange(nameof(Product));
-			}
-		}
+    public class ProductDetailsViewModel : ViewModel
+    {
+        private int _productId;
+        private ProductService productService;
+        private ProductDetailsDTO? _product;
 
-		public ProductDetailsViewModel(ProductService productService)
-		{
-			ProductService = productService;
-		}
-	}
+        public ProductDetailsViewModel(ProductService productService)
+        {
+            this.productService = productService;
+        }
+
+        public int ProductId
+        {
+            get => this._productId;
+            set
+            {
+                this._productId = value;
+                this.Product = Task.Run(async () => await this.productService.GetProductDetails(this._productId)).Result;
+            }
+        }
+
+        public ProductDetailsDTO Product
+        {
+            get => this._product!;
+            private set
+            {
+                this._product = value;
+                this.OnPropertyChange(nameof(this.Product));
+            }
+        }
+    }
 }

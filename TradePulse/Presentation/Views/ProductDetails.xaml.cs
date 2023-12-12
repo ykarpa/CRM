@@ -1,15 +1,19 @@
-﻿using System.Windows.Controls;
+﻿// <copyright file="ProductDetails.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.Views
 {
-	/// <summary>
-	/// Interaction logic for CardInfo.xaml
-	/// </summary>
-	public partial class ProductDetails : UserControl
+    using System.Windows.Controls;
+
+    /// <summary>
+    /// Interaction logic for CardInfo.xaml.
+    /// </summary>
+    public partial class ProductDetails : UserControl
     {
         public ProductDetails()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

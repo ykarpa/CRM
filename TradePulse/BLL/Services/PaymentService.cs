@@ -1,54 +1,59 @@
-﻿using BLL.DTOs;
-using DAL.GenerickRepository;
-using DAL.Models;
+﻿// <copyright file="PaymentService.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace BLL.Services
 {
-	public class PaymentService : IService<Payment>
-	{
-		private IGenericRepository<Payment> paymentRepository;
+    using BLL.DTOs;
+    using DAL.GenerickRepository;
+    using DAL.Models;
 
-		public PaymentService()
-		{
-			paymentRepository = new TradePulseRepository<Payment>();
-		}
-        public PaymentService(IGenericRepository<Payment>paymentService)
+    public class PaymentService : IService<Payment>
+    {
+        private IGenericRepository<Payment> paymentRepository;
+
+        public PaymentService()
         {
-			paymentRepository = paymentService;
+            this.paymentRepository = new TradePulseRepository<Payment>();
+        }
+
+        public PaymentService(IGenericRepository<Payment> paymentService)
+        {
+            this.paymentRepository = paymentService;
         }
 
         public Task<List<Payment>> GetAll()
-		{
-			return paymentRepository.GetAll();
-		}
+        {
+            return this.paymentRepository.GetAll();
+        }
 
-		public Task<Payment> GetById(int id)
-		{
-			return paymentRepository.GetById(id);
-		}
+        public Task<Payment> GetById(int id)
+        {
+            return this.paymentRepository.GetById(id);
+        }
 
-		public IQueryable<Payment> GetQuaryable()
-		{
-			return paymentRepository.GetQuaryable();
-		}
+        public IQueryable<Payment> GetQuaryable()
+        {
+            return this.paymentRepository.GetQuaryable();
+        }
 
-		public void Create(Payment payment)
-		{
-			paymentRepository.Create(payment);
-			paymentRepository.Save();
-		}
+        public void Create(Payment payment)
+        {
+            this.paymentRepository.Create(payment);
+            this.paymentRepository.Save();
+        }
 
-		public void Update(Payment payment)
-		{
-			paymentRepository.Update(payment);
-			paymentRepository.Save();
-		}
+        public void Update(Payment payment)
+        {
+            this.paymentRepository.Update(payment);
+            this.paymentRepository.Save();
+        }
 
-		public void Delete(Payment payment)
-		{
-			paymentRepository.Delete(payment);
-			paymentRepository.Save();
-		}
+        public void Delete(Payment payment)
+        {
+            this.paymentRepository.Delete(payment);
+            this.paymentRepository.Save();
+        }
 
         public async Task<List<PaymentListDTO>> GetPaymentsList()
         {
@@ -58,12 +63,12 @@ namespace BLL.Services
                 From = p.From,
                 To = p.To,
                 Amount = p.Amount,
-                Purpose = p.Purpose
+                Purpose = p.Purpose,
             }).ToList();
         }
 
-        //public async Task<PaymentListDTO> GetPaymentDetails(int id)
-        //{
+        // public async Task<PaymentListDTO> GetPaymentDetails(int id)
+        // {
         //    var payment = await this.GetById(id);
         //    return new PaymentListDTO()
         //    {
@@ -73,6 +78,6 @@ namespace BLL.Services
         //        Amount = payment.Amount,
         //        Purpose = payment.Purpose
         //    };
-        //}
+        // }
     }
 }

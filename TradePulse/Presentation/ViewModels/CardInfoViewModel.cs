@@ -1,37 +1,40 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using DAL.Models;
+﻿// <copyright file="CardInfoViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.ViewModels
 {
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
     public class CardInfoViewModel : INotifyPropertyChanged
     {
         private ProductViewModel _productViewModel;
 
         public ProductViewModel ProductViewModel
         {
-            get { return _productViewModel; }
+            get
+            {
+                return this._productViewModel;
+            }
+
             set
             {
-                _productViewModel = value;
-                OnPropertyChanged();
+                this._productViewModel = value;
+                this.OnPropertyChanged();
             }
         }
 
         public CardInfoViewModel(ProductViewModel productViewModel)
         {
-            _productViewModel = productViewModel;
+            this._productViewModel = productViewModel;
         }
-
-        #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        #endregion
     }
 }

@@ -1,65 +1,72 @@
-﻿using Presentation.Core;
-using Presentation.Services;
-using Presentation.Views;
-using System;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿// <copyright file="CategoriesViewModel.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.ViewModels
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using Presentation.Core;
+    using Presentation.Services;
+
     public class CategoriesViewModel : ViewModel
     {
         private ObservableCollection<CategoryViewModel> _categories;
 
         public ObservableCollection<CategoryViewModel> Categories
         {
-            get => _categories;
+            get => this._categories;
             set
             {
-                _categories = value;
-                OnPropertyChange();
+                this._categories = value;
+                this.OnPropertyChange();
             }
         }
+
         private INavigationService _navigation;
 
         public INavigationService Navigation
         {
-            get => _navigation;
+            get => this._navigation;
             set
             {
-                _navigation = value;
-                OnPropertyChange();
+                this._navigation = value;
+                this.OnPropertyChange();
             }
         }
 
         public RelayCommand NavigateToProducts { get; set; }
+
         public Func<string, RelayCommand> InitNavCommand { get; private set; }
+
         private void InitCategories()
         {
             var categoryViewModels = this.categoriesData.Select(c => new CategoryViewModel()
             {
                 CategoryTitle = c,
-                NavigateToProducts = InitNavCommand(c)
+                NavigateToProducts = this.InitNavCommand(c),
             });
-            Categories = new ObservableCollection<CategoryViewModel>(categoryViewModels);
+            this.Categories = new ObservableCollection<CategoryViewModel>(categoryViewModels);
         }
 
         private string[] categoriesData;
+
         public CategoriesViewModel(INavigationService navService)
         {
-            _navigation = navService;
+            this._navigation = navService;
             this.InitNavCommand = (name) => new RelayCommand(o => true, o =>
             {
-                Navigation.NavigateTo<ProductsViewModel>();
-                Navigation.InitParam<ProductsViewModel>(v => v.Category = name);
+                this.Navigation.NavigateTo<ProductsViewModel>();
+                this.Navigation.InitParam<ProductsViewModel>(v => v.Category = name);
             });
             this.categoriesData = new string[]
             {
                 "Електроніка та Гаджети", "Одяг та Взуття", "Побутова Техніка", "Спорт",
                 "Іграшки", "Кухонні Товари", "Меблі та Декор", "Книги", "Автомобільні Товари",
-                "Садові та Зовнішні Товари", "Мистецтво та Рукоділля", "Аксесуари"
+                "Садові та Зовнішні Товари", "Мистецтво та Рукоділля", "Аксесуари",
             };
-            InitCategories();
+            this.InitCategories();
         }
     }
 }

@@ -1,11 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+﻿// <copyright file="20231028131927_InitDb.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 #nullable disable
 
 namespace DAL.Migrations
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+    using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
     /// <inheritdoc />
     public partial class InitDb : Migration
     {
@@ -23,7 +27,7 @@ namespace DAL.Migrations
                     BirthDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Role = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -43,7 +47,7 @@ namespace DAL.Migrations
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     ItemsAvailable = table.Column<long>(type: "bigint", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    VendorId = table.Column<int>(type: "integer", nullable: false)
+                    VendorId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -69,7 +73,7 @@ namespace DAL.Migrations
                     DeliveryType = table.Column<string>(type: "text", nullable: false),
                     Status = table.Column<string>(type: "text", nullable: false),
                     ItemsCount = table.Column<long>(type: "bigint", nullable: false),
-                    ReceiverId = table.Column<int>(type: "integer", nullable: false)
+                    ReceiverId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -87,7 +91,7 @@ namespace DAL.Migrations
                 columns: table => new
                 {
                     ItemsItemId = table.Column<int>(type: "integer", nullable: false),
-                    OrdersOrderId = table.Column<int>(type: "integer", nullable: false)
+                    OrdersOrderId = table.Column<int>(type: "integer", nullable: false),
                 },
                 constraints: table =>
                 {

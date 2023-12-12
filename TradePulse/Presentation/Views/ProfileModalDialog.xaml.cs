@@ -1,17 +1,21 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿// <copyright file="ProfileModalDialog.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Presentation.Views
 {
-	/// <summary>
-	/// Interaction logic for ProfileModalDialog.xaml
-	/// </summary>
-	public partial class ProfileModalDialog : UserControl
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
+
+    /// <summary>
+    /// Interaction logic for ProfileModalDialog.xaml.
+    /// </summary>
+    public partial class ProfileModalDialog : UserControl
     {
         public ProfileModalDialog()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)

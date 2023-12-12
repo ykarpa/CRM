@@ -1,23 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="Payment.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace DAL.Models
 {
-	public class Payment
-	{
-		public int PaymentId { get; set; }
-		[ForeignKey("User")]
-		public int From { get; set; }
-		[ForeignKey("User")]
-		public int To { get; set; }
-		public uint Amount { get; set; }
-		public string Purpose { get; set; } = null!;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-		public User Sender { get; set; }
-		public User Receiver { get; set; }
-	}
+    public class Payment
+    {
+        public int PaymentId { get; set; }
+
+        [ForeignKey("User")]
+        public int From { get; set; }
+
+        [ForeignKey("User")]
+        public int To { get; set; }
+
+        public uint Amount { get; set; }
+
+        public string Purpose { get; set; } = null!;
+
+        public User? Sender { get; set; }
+
+        public User? Receiver { get; set; }
+    }
 }
