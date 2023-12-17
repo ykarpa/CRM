@@ -44,19 +44,32 @@ namespace Presentation
 				  });
 				  services.AddTransient<ProductDetailsViewModel>();
 
+
 				  services.AddTransient<Profile>(provider => new Profile()
 				  {
 					  DataContext = provider.GetRequiredService<ProfileViewModel>()
 				  });
 				  services.AddTransient<ProfileViewModel>();
 
-				  services.AddTransient<ProfileModalDialog>(provider => new ProfileModalDialog()
+
+                  services.AddTransient<Finance>(provider => new Finance()
+                  {
+                      DataContext = provider.GetRequiredService<FinanceViewModel>()
+                  });
+                  services.AddTransient<FinanceViewModel>();
+
+
+
+                  services.AddTransient<ProfileModalDialog>(provider => new ProfileModalDialog()
 				  {
 					  DataContext = provider.GetRequiredService<ProfileViewModelModalDialog>()
 				  });
 				  services.AddTransient<ProfileViewModelModalDialog>();
 
-				  services.AddTransient<Login>(provider => new Login()
+        
+
+
+                  services.AddTransient<Login>(provider => new Login()
 				  {
 					  DataContext = provider.GetRequiredService<LoginViewModel>()
 				  });

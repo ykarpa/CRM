@@ -19,6 +19,7 @@ namespace Presentation.ViewModels
         }
 
         public RelayCommand NavigateToProfile { get; set; }
+        public RelayCommand NavigateToFinance { get; set; }
 
         public ProfileViewModelModalDialog(INavigationService navService)
         {
@@ -28,7 +29,12 @@ namespace Presentation.ViewModels
                 Navigation.NavigateTo<ProfileViewModel>();
                 Navigation.InitParam<ProfileViewModel>(p => p.User = AuthService.CurrentUser);
             });
+
+            this.NavigateToFinance = new RelayCommand(o => true, o =>
+            {
+                Navigation.NavigateTo<FinanceViewModel>();
+            });
         }
     }
-
 }
+

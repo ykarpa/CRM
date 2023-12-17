@@ -51,8 +51,10 @@ namespace Presentation.ViewModels
 		}
 		public RelayCommand NavigateToCategories { get; set; }
 		public RelayCommand NavigateToProfile { get; private set; }
+        public RelayCommand NavigateToFinance { get; set; }
 
-		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
+
+        public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
 			_navigation = navService;
 			this.NavigateToCategories = new RelayCommand(o => true, o => { Navigation.NavigateTo<CategoriesViewModel>(); });
