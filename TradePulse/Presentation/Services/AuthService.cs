@@ -43,6 +43,10 @@ namespace Presentation.Services
 				bool authExpired = seconds - authConfig.LastVisited > month || authConfig.User == 0;
 				bool userExists = await CheckIfUserExistsById(authConfig.User);
 				authExpired = authExpired || !userExists;
+				if (authConfig.User != 0)
+				{
+					CurrentUserId = authConfig.User;
+				}
 				return authExpired;
 			}
 			catch
