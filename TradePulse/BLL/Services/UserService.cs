@@ -13,11 +13,11 @@ namespace BLL.Services
 		{
 			userRepository = new TradePulseRepository<User>();
 		}
-        public UserService(IGenericRepository<User> userService)
-        {
-            userRepository = userService;
-        }
-        public Task<List<User>> GetAll()
+		public UserService(IGenericRepository<User> userService)
+		{
+			userRepository = userService;
+		}
+		public Task<List<User>> GetAll()
 		{
 			return userRepository.GetAll();
 		}
@@ -50,37 +50,37 @@ namespace BLL.Services
 			userRepository.Save();
 		}
 
-        public async Task<List<UserListDTO>> GetUsersList()
-        {
-            return (await this.GetAll()).Select(u => new UserListDTO()
-            {
-                UserId = u.UserId,
-                Email = u.Email,
-                Password = u.Password,
-                FirstName = u.FirstName,
-                LastName = u.LastName
-            }).ToList();
-        }
+		public async Task<List<UserListDTO>> GetUsersList()
+		{
+			return (await this.GetAll()).Select(u => new UserListDTO()
+			{
+				UserId = u.UserId,
+				Email = u.Email,
+				Password = u.Password,
+				FirstName = u.FirstName,
+				LastName = u.LastName
+			}).ToList();
+		}
 
-        public async Task<UserDetailsDTO>? GetUserDetails(int id)
-        {
-            var user = await this.GetById(id);
+		public async Task<UserDetailsDTO>? GetUserDetails(int id)
+		{
+			var user = await this.GetById(id);
 			if(user == null)
 			{
 				return null!;
 			}
-            return new UserDetailsDTO()
-            {
-                UserId = user.UserId,
-                Email = user.Email,
-                Password = user.Password,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                BirthDate = user.BirthDate,
-                CreatedAt = user.CreatedAt,
+			return new UserDetailsDTO()
+			{
+				UserId = user.UserId,
+				Email = user.Email,
+				Password = user.Password,
+				FirstName = user.FirstName,
+				LastName = user.LastName,
+				BirthDate = user.BirthDate,
+				CreatedAt = user.CreatedAt,
 				Role = user.Role
-            };
-        }
+			};
+		}
 
 		public async Task<UserDetailsDTO>? GetUserDetailsByEmail(string email)
 		{
@@ -102,5 +102,30 @@ namespace BLL.Services
 				Role = user.Role
 			};
 		}
+
+		public async Task Create(UserDetailsDTO userDto)
+		{
+			User user = new()
+			{
+				BirthDate = userDto.BirthDate.ToUniversalTime(),
+				Role = userDto.Role,
+				Email = userDto.Email,
+				Password = userDto.Password,
+				FirstName = userDto.FirstName,
+				LastName = userDto.LastName,
+				CreatedAt = DateTime.Now.ToUniversalTime(),
+				Orders = null,
+				Products = null
+			};
+			try
+			{
+				this.Create(user);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
+		}
+
 	}
 }

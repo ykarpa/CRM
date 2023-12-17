@@ -8,6 +8,6 @@
 		public Task Create(T entity);
 		public void Update(T entity);
 		public void Delete(T entity);
-		public Task Save();
+		public void Save();
 	}
 }

@@ -74,10 +74,16 @@ namespace Presentation.Services
 			await File.WriteAllTextAsync(config, json);
 		}
 
-		public static void Login(UserDetailsDTO user)
+		public static async Task Register(UserDetailsDTO user)
 		{
-			CurrentUser = user;
-			CurrentUserId = user.UserId;
+			try
+			{
+				await UserService.Create(user);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+			}
 		}
 	}
 }

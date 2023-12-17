@@ -37,9 +37,9 @@ namespace DAL.GenerickRepository
 			return await table.FindAsync(id);
 		}
 
-		public async Task Save()
+		public void Save()
 		{
-			await context.SaveChangesAsync();
+			this.context.SaveChanges();
 		}
 
 		public void Update(T entity)
