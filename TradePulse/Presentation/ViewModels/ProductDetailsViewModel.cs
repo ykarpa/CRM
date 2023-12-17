@@ -1,6 +1,5 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
-using DAL.Models;
 using Presentation.Core;
 using System.Threading.Tasks;
 
@@ -15,10 +14,10 @@ namespace Presentation.ViewModels
 			set
 			{
 				_productId = value;
-				Product = Task.Run(async () => await ProductService.GetProductDetails(_productId)).Result;
+				Product = Task.Run(async () => await _productService.GetProductDetails(_productId)).Result;
 			}
 		}
-		private ProductService ProductService;
+		private readonly ProductService _productService;
 
 		private ProductDetailsDTO? _product;
 		public ProductDetailsDTO Product
@@ -27,13 +26,13 @@ namespace Presentation.ViewModels
 			private set
 			{
 				_product = value;
-				OnPropertyChange(nameof(Product));
+				OnPropertyChange();
 			}
 		}
 
 		public ProductDetailsViewModel(ProductService productService)
 		{
-			ProductService = productService;
+			_productService = productService;
 		}
 	}
 }

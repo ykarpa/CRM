@@ -1,9 +1,4 @@
 ﻿using Presentation.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presentation.ViewModels
 {
@@ -13,14 +8,12 @@ namespace Presentation.ViewModels
 
         public string CategoryTitle
         {
-            get { return _categoryTitle!; }
+            get => _categoryTitle!;
             set
             {
-                if (_categoryTitle != value)
-                {
-                    _categoryTitle = value;
-                    OnPropertyChange();
-                }
+	            if (_categoryTitle == value) return;
+	            _categoryTitle = value;
+	            OnPropertyChange();
             }
         }
 

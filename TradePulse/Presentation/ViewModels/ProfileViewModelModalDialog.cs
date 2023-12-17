@@ -1,6 +1,5 @@
 ﻿using Presentation.Services;
 using Presentation.Core;
-using Presentation.Views;
 
 namespace Presentation.ViewModels
 {
@@ -23,7 +22,7 @@ namespace Presentation.ViewModels
         public ProfileViewModelModalDialog(INavigationService navService)
         {
             _navigation = navService;
-            this.NavigateToProfile = new RelayCommand(o => true, o =>
+            this.NavigateToProfile = new RelayCommand(_ => true, _ =>
             {
                 Navigation.NavigateTo<ProfileViewModel>();
                 Navigation.InitParam<ProfileViewModel>(p => p.User = AuthService.CurrentUser);

@@ -19,14 +19,14 @@ namespace Presentation.ViewModels
 			}
 		}
 
-		private ProfileModalDialog profileDialog;
+		private ProfileModalDialog _profileDialog;
 
 		public ProfileModalDialog ProfileDialog
 		{
-			get => profileDialog;
+			get => _profileDialog;
 			set
 			{
-				profileDialog = value;
+				_profileDialog = value;
 				OnPropertyChange();
 			}
 		}
