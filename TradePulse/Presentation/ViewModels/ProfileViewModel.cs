@@ -15,7 +15,7 @@ namespace Presentation.ViewModels
             set
             {
                 _user = value;
-                OnPropertyChange(nameof(User));
+                OnPropertyChange();
             }
         }
     }

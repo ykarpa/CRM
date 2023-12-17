@@ -25,9 +25,9 @@ namespace BLL.Services
 			return productRepository.GetById(id);
 		}
 
-		public IQueryable<Product> GetQuaryable()
+		public IQueryable<Product> GetQueryable()
 		{
-			return productRepository.GetQuaryable();
+			return productRepository.GetQueryable();
 		}
 
 		public void Create(Product product)

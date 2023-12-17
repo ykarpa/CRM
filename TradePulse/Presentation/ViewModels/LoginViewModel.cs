@@ -2,7 +2,6 @@
 using BLL.Services;
 using Presentation.Core;
 using Presentation.Services;
-using Presentation.Views;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,12 +21,12 @@ namespace Presentation.ViewModels
 				OnPropertyChange();
 			}
 		}
-		private UserService _userService;
+		private readonly UserService _userService;
 
 		public UserService UserService
 		{
 			get => _userService;
-			private set
+			private init
 			{
 				_userService = value;
 				OnPropertyChange();
@@ -45,19 +44,19 @@ namespace Presentation.ViewModels
 			set
 			{
 				_email = value;
-				OnPropertyChange(nameof(Email));
+				OnPropertyChange();
 			}
 		}
 
-		private string _passsword = "";
+		private string _password = "";
 
 		public string Password
 		{
-			get => _passsword;
+			get => _password;
 			set
 			{
-				_passsword = value;
-				OnPropertyChange(nameof(Password));
+				_password = value;
+				OnPropertyChange();
 			}
 		}
 
@@ -69,7 +68,7 @@ namespace Presentation.ViewModels
 				MessageBox.Show($"Користувача з поштою {Email} не існує", "User not found", MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
 			}
-			bool passwordsMatch = PasswordService.Verify(Password, user.Password);
+			bool passwordsMatch = PasswordService.Verify(password, user.Password);
 			if(!passwordsMatch)
 			{
 				MessageBox.Show($"Ви ввели неправильний пароль", "Incorrect password", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -79,11 +78,11 @@ namespace Presentation.ViewModels
 			_mainViewModel.ShowNavBarButtons();
 			Navigation.NavigateTo<CategoriesViewModel>();
 		}
-		private MainViewModel _mainViewModel;
-		public LoginViewModel(INavigationService _navService, UserService userService, MainViewModel mw)
+		private readonly MainViewModel _mainViewModel;
+		public LoginViewModel(INavigationService navService, UserService userService, MainViewModel mw)
 		{
-			this._navigation = _navService;
-			this._userService = userService;
+			this._navigation = navService;
+			this.UserService = userService;
 			_mainViewModel = mw;
 			this.NavigateToRegistration = new RelayCommand(o => true, o =>
 			{

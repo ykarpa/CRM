@@ -55,7 +55,7 @@ namespace Presentation.ViewModels
         public ProductsViewModel(ProductService productService, INavigationService navigation)
         {
             ProductService = productService;
-            InitNavCommand = (id) => new RelayCommand(o => true, o =>
+            InitNavCommand = (id) => new RelayCommand(_ => true, _ =>
             {
                 navigation.NavigateTo<ProductDetailsViewModel>();
                 navigation.InitParam<ProductDetailsViewModel>(p => p.ProductId = id);

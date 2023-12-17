@@ -27,9 +27,9 @@ namespace BLL.Services
 			return paymentRepository.GetById(id);
 		}
 
-		public IQueryable<Payment> GetQuaryable()
+		public IQueryable<Payment> GetQueryable()
 		{
-			return paymentRepository.GetQuaryable();
+			return paymentRepository.GetQueryable();
 		}
 
 		public void Create(Payment payment)

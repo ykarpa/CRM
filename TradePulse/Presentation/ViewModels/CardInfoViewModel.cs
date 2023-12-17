@@ -10,7 +10,7 @@ namespace Presentation.ViewModels
 
         public ProductViewModel ProductViewModel
         {
-            get { return _productViewModel; }
+            get => _productViewModel;
             set
             {
                 _productViewModel = value;
@@ -25,7 +25,7 @@ namespace Presentation.ViewModels
 
         #region INotifyPropertyChanged Members
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

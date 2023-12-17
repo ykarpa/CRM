@@ -26,9 +26,9 @@ namespace BLL.Services
 			return orderRepository.GetById(id);
 		}
 
-		public IQueryable<Order> GetQuaryable()
+		public IQueryable<Order> GetQueryable()
 		{
-			return orderRepository.GetQuaryable();
+			return orderRepository.GetQueryable();
 		}
 
 		public void Create(Order order)

@@ -27,9 +27,9 @@ namespace BLL.Services
 			throw new InvalidOperationException("UsersSubscription table has no primary key");
 		}
 
-		public IQueryable<UsersSubscriptions> GetQuaryable()
+		public IQueryable<UsersSubscriptions> GetQueryable()
 		{
-			return usersSubscriptionsRepository.GetQuaryable();
+			return usersSubscriptionsRepository.GetQueryable();
 		}
 
 		public void Create(UsersSubscriptions usersSubscriptions)
