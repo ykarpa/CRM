@@ -27,9 +27,9 @@ namespace BLL.Services
 			return userRepository.GetById(id);
 		}
 
-		public IQueryable<User> GetQuaryable()
+		public IQueryable<User> GetQueryable()
 		{
-			return userRepository.GetQuaryable();
+			return userRepository.GetQueryable();
 		}
 
 		public void Create(User user)
@@ -85,7 +85,7 @@ namespace BLL.Services
 		public async Task<UserDetailsDTO>? GetUserDetailsByEmail(string email)
 		{
 
-			var user = await Task.Run(() => GetQuaryable().Where(u => u.Email == email).FirstOrDefaultAsync());
+			var user = await Task.Run(() => GetQueryable().Where(u => u.Email == email).FirstOrDefaultAsync());
 			if (user == null)
 			{
 				return null!;

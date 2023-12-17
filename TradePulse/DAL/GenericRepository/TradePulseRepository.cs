@@ -17,7 +17,7 @@ namespace DAL.GenerickRepository
 			await this.table.AddAsync(entity);
 		}
 
-		public IQueryable<T> GetQuaryable()
+		public IQueryable<T> GetQueryable()
 		{
 			return this.table.AsQueryable<T>();
 		}
