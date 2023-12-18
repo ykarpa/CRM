@@ -17,7 +17,7 @@ namespace DAL.GenerickRepository
 			await this.table.AddAsync(entity);
 		}
 
-		public IQueryable<T> GetQuaryable()
+		public IQueryable<T> GetQueryable()
 		{
 			return this.table.AsQueryable<T>();
 		}
@@ -37,9 +37,9 @@ namespace DAL.GenerickRepository
 			return await table.FindAsync(id);
 		}
 
-		public async Task Save()
+		public void Save()
 		{
-			await context.SaveChangesAsync();
+			this.context.SaveChanges();
 		}
 
 		public void Update(T entity)

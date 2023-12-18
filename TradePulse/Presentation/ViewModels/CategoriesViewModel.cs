@@ -35,7 +35,7 @@ namespace Presentation.ViewModels
         public Func<string, RelayCommand> InitNavCommand { get; private set; }
         private void InitCategories()
         {
-            var categoryViewModels = this.categoriesData.Select(c => new CategoryViewModel()
+            var categoryViewModels = this._categoriesData.Select(c => new CategoryViewModel()
             {
                 CategoryTitle = c,
                 NavigateToProducts = InitNavCommand(c)
@@ -43,7 +43,7 @@ namespace Presentation.ViewModels
             Categories = new ObservableCollection<CategoryViewModel>(categoryViewModels);
         }
 
-        private string[] categoriesData;
+        private readonly string[] _categoriesData;
         public CategoriesViewModel(INavigationService navService)
         {
             _navigation = navService;
@@ -52,7 +52,7 @@ namespace Presentation.ViewModels
                 Navigation.NavigateTo<ProductsViewModel>();
                 Navigation.InitParam<ProductsViewModel>(v => v.Category = name);
             });
-            this.categoriesData = new string[]
+            this._categoriesData = new string[]
             {
                 "Електроніка та Гаджети", "Одяг та Взуття", "Побутова Техніка", "Спорт",
                 "Іграшки", "Кухонні Товари", "Меблі та Декор", "Книги", "Автомобільні Товари",

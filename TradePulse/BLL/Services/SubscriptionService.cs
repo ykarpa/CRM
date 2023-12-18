@@ -26,9 +26,9 @@ namespace BLL.Services
 			return subscriptionRepository.GetById(id);
 		}
 
-		public IQueryable<Subscription> GetQuaryable()
+		public IQueryable<Subscription> GetQueryable()
 		{
-			return subscriptionRepository.GetQuaryable();
+			return subscriptionRepository.GetQueryable();
 		}
 
 		public void Create(Subscription subscription)

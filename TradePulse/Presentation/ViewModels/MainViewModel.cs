@@ -19,14 +19,14 @@ namespace Presentation.ViewModels
 			}
 		}
 
-		private ProfileModalDialog profileDialog;
+		private ProfileModalDialog _profileDialog;
 
 		public ProfileModalDialog ProfileDialog
 		{
-			get => profileDialog;
+			get => _profileDialog;
 			set
 			{
-				profileDialog = value;
+				_profileDialog = value;
 				OnPropertyChange();
 			}
 		}
@@ -53,6 +53,7 @@ namespace Presentation.ViewModels
 		public RelayCommand NavigateToProfile { get; private set; }
         public RelayCommand NavigateToFinance { get; set; }
 
+		public RelayCommand Logout { get; private set; }
 
         public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
@@ -63,6 +64,12 @@ namespace Presentation.ViewModels
                 Navigation.NavigateTo<ProfileViewModel>();
                 Navigation.InitParam<ProfileViewModel>(p => p.User = AuthService.CurrentUser);
             });
-        }
+            this.Logout = new RelayCommand(_ => true, _ =>
+            {
+	            AuthService.Logout();
+				this.HideNavBarButtons();
+				Navigation.NavigateTo<LoginViewModel>();
+            });
+		}
 	}
 }

@@ -6,7 +6,7 @@
 
 		public Task<T> GetById(int id);
 
-		public IQueryable<T> GetQuaryable();
+		public IQueryable<T> GetQueryable();
 
 		public void Create(T instance);
 
