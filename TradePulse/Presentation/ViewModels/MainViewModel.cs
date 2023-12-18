@@ -51,6 +51,7 @@ namespace Presentation.ViewModels
 		}
 		public RelayCommand NavigateToCategories { get; set; }
 		public RelayCommand NavigateToProfile { get; private set; }
+		public RelayCommand Logout { get; private set; }
 
 		public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
@@ -61,6 +62,12 @@ namespace Presentation.ViewModels
                 Navigation.NavigateTo<ProfileViewModel>();
                 Navigation.InitParam<ProfileViewModel>(p => p.User = AuthService.CurrentUser);
             });
-        }
+            this.Logout = new RelayCommand(_ => true, _ =>
+            {
+	            AuthService.Logout();
+				this.HideNavBarButtons();
+				Navigation.NavigateTo<LoginViewModel>();
+            });
+		}
 	}
 }
