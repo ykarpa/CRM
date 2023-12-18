@@ -6,7 +6,41 @@
         xmlns:local="clr-namespace:Presentation.Views"
         mc:Ignorable="d"
         Title="TradePulse" Height="720" Width="1280" Background="#C4D0E8">
-    
+
+    <Window.Resources>
+        <Style x:Key="HoverHighlightImage" TargetType="Image">
+            <Setter Property="Opacity" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="HoverHighlightButton" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="10, 5, 10, 5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#42416F" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -19,14 +53,24 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10,0,10,0">
                 <TextBox Width="250" Height="30"  Margin="0,0,10,0" />
             </StackPanel>
+
+
+
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="0,0,30,0" Visibility="{Binding NavButtonsVisibility}">
-                <Button Name ="CategoryButton" Content="КатегоріЇ" Height="30" Margin="10,0,0,0" Command="{Binding NavigateToCategories}"/>
-                <Button Content="Корзина" Height="30" Margin="10,0,0,0" />
-                <Button Name="ProfileButton" Content="Профіль" Height="30" Margin="10,0,0,0" Click="ProfileButton_Click"/>
+                <Button x:Name="CategoryButton" Content="Категорії" Height="60" Command="{Binding NavigateToCategories}" Click="CategoryButton_Click" Style="{StaticResource HoverHighlightButton}" />
+                <Image x:Name="CartImage" Source="/Images/cart.png" Height="32" Margin="15,0,0,0" MouseLeftButtonDown="CartButton_Click" Style="{StaticResource HoverHighlightImage}"/>
+                <Image x:Name="ProfileImage" Source="/Images/profile.png" Height="38" Margin="15,0,0,0" MouseLeftButtonDown="ProfileButton_Click" Style="{StaticResource HoverHighlightImage}"/>
+
+
+                <!--<Button x:Name="ProfileButton" Content="Профіль" Height="60" Click="ProfileButton_Click" Style="{StaticResource HoverHighlightButton}" />-->
             </StackPanel>
+
+
+
         </Grid>
         <local:ProfileModalDialog x:Name="profileDialog"  Grid.Row="1" Visibility="Hidden" Panel.ZIndex="999"/>
-        <ContentControl Grid.Row="2" Content="{Binding Navigation.CurrentView}"></ContentControl>
-    </Grid>
+        <local:Cart x:Name="cartDialog" Grid.Row="2" Visibility="Hidden" Panel.ZIndex="998"/>
 
+        <ContentControl Grid.Row="3" Content="{Binding Navigation.CurrentView}"></ContentControl>
+    </Grid>
 </Window>
