@@ -98,12 +98,12 @@ namespace Presentation.ViewModels
 		private string _roleString;
 		public RelayCommand RegisterCommand { get; private init; }
 
-		public async Task Register()
+		public async Task<bool> Register()
 		{
 			bool isDataValid = ValidateData();
 			if (!isDataValid)
 			{
-				return;
+				return false;
 			}
 			string encodedPassword = PasswordService.EncodePassword(Password!);
 			UserDetailsDTO user = new UserDetailsDTO()
@@ -121,8 +121,10 @@ namespace Presentation.ViewModels
 			}
 			catch
 			{
-				return;
+				return false;
 			}
+
+			return true;
 		}
 
 		private bool ValidateData()
@@ -171,9 +173,13 @@ namespace Presentation.ViewModels
 			_navService = navService;
 			this.RegisterCommand = new RelayCommand(_ => true, _ =>
 			{
-				Task.Run(async () => await this.Register());
-				navService.NavigateTo<LoginViewModel>();
-				navService.InitParam<LoginViewModel>(v => v.Email = this.Email!);
+				Task.Run(async () =>
+				{
+					var isRegistered = await this.Register();
+					if (!isRegistered) return;
+					navService.NavigateTo<LoginViewModel>();
+					navService.InitParam<LoginViewModel>(v => v.Email = this.Email!);
+				});
 			});
 		}
 	}
