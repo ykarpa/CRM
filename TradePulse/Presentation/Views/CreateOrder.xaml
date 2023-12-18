@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Presentation.Views.CreateOrder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.Views"
+             mc:Ignorable="d" 
+             Height="690" Width="1280" Background="Transparent">
+
+    <Grid>
+        <Border CornerRadius="30" Height="635" Width="925" Background="#FFF" BorderBrush="Black" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Ваше замовлення" TextAlignment="Center" Foreground="#060542" FontSize="38" FontFamily="Inter" FontWeight="DemiBold" Margin="70,30,70,0"/>
+                <TextBlock Text="Контактні дані одержувача" FontSize="18" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Height="22" Margin="70,30,70,0"/>
+
+                <!-- Прізвище та Ім'я -->
+                <StackPanel Orientation="Horizontal" Margin="70,10,70,0">
+                    <TextBlock Text="Прізвище" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="0,0,213,0"/>
+                    <TextBlock Text="Ім'я" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="200,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="70,5,70,0">
+                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0"/>
+                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter"/>
+                </StackPanel>
+
+                <!-- Телефон та Емейл -->
+                <StackPanel Orientation="Horizontal" Margin="70,20,70,0">
+                    <TextBlock Text="Телефон" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="0,0,218,0"/>
+                    <TextBlock Text="Електронна адреса" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="200,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="70,5,70,0">
+                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0"/>
+                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter"/>
+                </StackPanel>
+
+                <!-- Спосіб доставки -->
+                <TextBlock Text="Спосіб доставки" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
+                <RadioButton Content="Нова пошта" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <RadioButton Content="Укрпошта" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <RadioButton Content="Meest" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <RadioButton Content="Самовивіз" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+
+                <!-- Спосіб оплати -->
+                <TextBlock Text="Спосіб оплати" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
+                <RadioButton Content="Оплата картою" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <RadioButton Content="Післяплата" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+
+                <TextBlock Text="Загальна вартість замовлення" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
+                
+                <!-- Кнопка "Оформити замовлення" -->
+                <Border CornerRadius="20" Width="228" Background="#060542" HorizontalAlignment="Right" Margin="0,20,100,0">
+                    <Button Content="Оформити замовлення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Right"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
