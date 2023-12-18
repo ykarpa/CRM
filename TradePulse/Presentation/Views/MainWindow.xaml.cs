@@ -18,11 +18,41 @@ namespace Presentation.Views
 			try
 			{
                 profileDialog.Visibility = (profileDialog.Visibility == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+                cartDialog.Visibility = Visibility.Hidden;
             }
-			catch
+            catch
 			{
 				return;
 			}
 		}
-	}
+
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                cartDialog.Visibility = (cartDialog.Visibility == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+                profileDialog.Visibility = Visibility.Hidden;
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void CategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                profileDialog.Visibility = Visibility.Hidden;
+                cartDialog.Visibility = Visibility.Hidden;
+
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+    }
 }
