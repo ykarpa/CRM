@@ -10,7 +10,7 @@
              VerticalAlignment="Stretch"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Rectangle Fill="Black" Opacity=".3" MouseDown="Rectangle_MouseDown"/>
+        <Rectangle Fill="Black" Opacity=".3" MouseDown="CollapseModal"/>
         <Border CornerRadius="3" Background="White" Height="143" Width="150" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,30,0" RenderTransformOrigin="0.494,0.506">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
@@ -21,11 +21,11 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="0" Content="Мій профіль" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" Grid.RowSpan="2" BorderThickness="0" Margin="5 0 0 0" Command="{Binding NavigateToProfile}" Click="NavigateToProfile_Click"/>
+                <Button Grid.Row="0" Content="Мій профіль" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" Grid.RowSpan="2" BorderThickness="0" Margin="5 0 0 0" Command="{Binding NavigateToProfile}" Click="CollapseModal"/>
                 <Separator Grid.Row="1" BorderThickness="1" BorderBrush="Silver" Margin="0,2,0,2"/>
-                <Button Grid.Row="2" Content="Фінанси" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" BorderThickness="0" Margin="5,0,0,-5" Command="{Binding NavigateToFinance}" />
+                <Button Grid.Row="2" Content="Фінанси" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" BorderThickness="0" Margin="5,0,0,-5" Command="{Binding NavigateToFinance}" Click="CollapseModal"/>
                 <Separator Grid.Row="3" BorderThickness="1" BorderBrush="Silver" Margin="0,45,0,-6"/>
-                <Button Grid.Row="4" Content="Вийти" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" Grid.RowSpan="2" BorderThickness="0" Margin="5 0 0 0" Command="{Binding Logout}" Click="Logout_Click"/>
+                <Button Grid.Row="4" Content="Вийти" HorizontalAlignment="Left" Background="White" Foreground="#060542" FontSize="16" FontWeight="DemiBold" Grid.RowSpan="2" BorderThickness="0" Margin="5 0 0 0" Command="{Binding Logout}" Click="CollapseModal"/>
             </Grid>
         </Border>
     </Grid>

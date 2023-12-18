@@ -70,6 +70,11 @@ namespace Presentation.ViewModels
 				this.HideNavBarButtons();
 				Navigation.NavigateTo<LoginViewModel>();
             });
+            this.NavigateToFinance = new RelayCommand(_ => true, _ =>
+            {
+				Navigation.NavigateTo<FinanceViewModel>();
+				Navigation.InitParam<FinanceViewModel>(v => v.EarnedMoney = 100000);
+            });
 		}
 	}
 }

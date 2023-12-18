@@ -44,7 +44,6 @@ namespace Presentation
 				  });
 				  services.AddTransient<ProductDetailsViewModel>();
 
-
 				  services.AddTransient<Profile>(provider => new Profile()
 				  {
 					  DataContext = provider.GetRequiredService<ProfileViewModel>()
@@ -58,16 +57,11 @@ namespace Presentation
                   });
                   services.AddTransient<FinanceViewModel>();
 
-
-
                   services.AddTransient<ProfileModalDialog>(provider => new ProfileModalDialog()
 				  {
 					  DataContext = provider.GetRequiredService<ProfileViewModelModalDialog>()
 				  });
 				  services.AddTransient<ProfileViewModelModalDialog>();
-
-        
-
 
                   services.AddTransient<Login>(provider => new Login()
 				  {

@@ -1,6 +1,4 @@
-﻿using BLL.Services;
-using Presentation.Core;
-using System.Threading.Tasks;
+﻿using Presentation.Core;
 
 namespace Presentation.ViewModels
 {
@@ -13,7 +11,7 @@ namespace Presentation.ViewModels
             set
             {
                 _earnedMoney = value;
-                OnPropertyChange(nameof(EarnedMoney));
+                OnPropertyChange();
             }
         }
     }

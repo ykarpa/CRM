@@ -18,7 +18,7 @@
                 
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <TextBlock Text="Зароблені кошти: " FontSize="24" FontWeight="Bold" Foreground="#060542" Margin="5 0 0 0"/>
-                    <TextBlock Text="347" FontSize="24" Foreground="#060542" Margin="0 0 0 0"/>
+                    <TextBlock Text="{Binding EarnedMoney}" FontSize="24" Foreground="#060542" Margin="0 0 0 0"/>
                     <TextBlock Text=" грн" FontSize="24" FontWeight="Bold" Foreground="#060542" Margin="5 0 0 0"/>
                 </StackPanel>
             </StackPanel>
