@@ -85,5 +85,11 @@ namespace Presentation.Services
 				Console.WriteLine(e);
 			}
 		}
+
+		public static void Logout()
+		{
+			CurrentUserId = 0;
+			CurrentUser = null;
+		}
 	}
 }
