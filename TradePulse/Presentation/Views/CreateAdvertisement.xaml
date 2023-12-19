@@ -18,41 +18,52 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="76,3,0,0">
-                    <TextBox Width="320" Height="27" Margin="0,0,128,0"/>
-                    <TextBox FontWeight="DemiBold" Width="320" Height="27"/>
+                    <TextBox Width="320" Height="27" Margin="0,0,128,0" Text="{Binding Title}"/>
+                    <TextBox FontWeight="DemiBold" Width="320" Height="27" Text="{Binding Model}"/>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Left" Margin="78,15,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="78,15,0,0">
                     <TextBlock Text="Виберіть категорію" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Height="16"/>
+                    <TextBlock Text="Вкажіть ціну" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Height="16" Margin="340,0,0,0"/>
+                </StackPanel>
 
-                    <ComboBox Width="320" Height="27">
-                        <ComboBoxItem>Електроніка та Гаджети</ComboBoxItem>
-                        <ComboBoxItem>Одяг та Взуття</ComboBoxItem>
-                        <ComboBoxItem>Побутова Техніка</ComboBoxItem>
-                        <ComboBoxItem>Спорт</ComboBoxItem>
-                        <ComboBoxItem>Іграшки</ComboBoxItem>
-                        <ComboBoxItem>Кухонні Товари</ComboBoxItem>
-                        <ComboBoxItem>Меблі та Декор</ComboBoxItem>
-                        <ComboBoxItem>Книги</ComboBoxItem>
-                        <ComboBoxItem>Автомобільні Товари</ComboBoxItem>
-                        <ComboBoxItem>Садові та Зовнішні Товари</ComboBoxItem>
-                        <ComboBoxItem>Мистецтво та Рукоділля</ComboBoxItem>
-                        <ComboBoxItem>Аксесуари</ComboBoxItem>
+                <StackPanel Orientation="Horizontal" Margin="78,3,0,0">
+                    <ComboBox HorizontalAlignment="Left" Width="320" Height="27" SelectedValue="{Binding Category}">
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Електроніка та Гаджети</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Одяг та Взуття</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Побутова Техніка</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Спорт</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Іграшки</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Кухонні Товари</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Меблі та Декор</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Книги</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Автомобільні Товари</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Садові та Зовнішні Товари</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Мистецтво та Рукоділля</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Аксесуари</ComboBoxItem>
                     </ComboBox>
+
+                    <TextBox FontWeight="DemiBold" Width="320" Height="27" Text="{Binding Price}" Margin="126,0,0,0"/>
                 </StackPanel>
 
-                <StackPanel Margin="78,18,0,0">
+                <StackPanel Margin="78,18,78,0">
                     <TextBlock Text="Додайте фото" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Width="136" Height="16" HorizontalAlignment="Left"/>
-                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnAddFile1" Content="Додати фото" Width="128" Height="110" Click="btnAddFile1_Click" Margin="0,0,32,0"/>
+                        <Button Name="btnAddFile2" Content="Додати фото" Width="128" Height="110" Click="btnAddFile2_Click" Margin="0,0,32,0"/>
+                        <Button Name="btnAddFile3" Content="Додати фото" Width="128" Height="110" Click="btnAddFile3_Click" Margin="0,0,32,0"/>
+                        <Button Name="btnAddFile4" Content="Додати фото" Width="128" Height="110" Click="btnAddFile4_Click" Margin="0,0,31,0"/>
+                        <Button Name="btnAddFile5" Content="Додати фото" Width="128" Height="110" Click="btnAddFile5_Click"/>
+                    </StackPanel>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Left" Margin="78,122,0,0">
+                <StackPanel HorizontalAlignment="Left" Margin="78,12,78,0">
                     <TextBlock Text="Опис" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Width="136" Height="16" Margin="0,0,0,12" HorizontalAlignment="Left"/>
-                    <TextBox Width="782" Height="155" Background="#D9D9D9" AcceptsReturn="True" TextWrapping="Wrap" />
+                    <TextBox Width="767" Height="155" Background="#D9D9D9" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding Description}"/>
                 </StackPanel>
 
                 <Border CornerRadius="20" Width="228" Background="#060542" HorizontalAlignment="Right" Margin="0,16,40,0">
-                    <Button Content="Створити оголошення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Right"/>
+                    <Button Content="Створити оголошення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Right" Command="{Binding CreateAdvertisementCommand}"/>
                 </Border>
 
             </StackPanel>

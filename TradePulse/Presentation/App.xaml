@@ -29,5 +29,11 @@
         <DataTemplate DataType="{x:Type viewModel:RegistrationViewModel}">
             <view:Registration/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:CreationOrderViewModel}">
+            <view:CreateOrder/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:CreationAdvertisementViewModel}">
+            <view:CreateAdvertisement/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

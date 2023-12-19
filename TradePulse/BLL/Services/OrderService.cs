@@ -78,5 +78,29 @@ namespace BLL.Services
                 ReceiverId = order.ReceiverId
             };
         }
+        public async Task Create(OrderDetailsDTO orderDTO)
+        {
+            Order order = new()
+            {
+                OrderPrice = orderDTO.OrderPrice,
+                DropPrice = orderDTO.DropPrice,
+                PaymentType = orderDTO.PaymentType,
+                DeliveryType = orderDTO.DeliveryType,
+                Status = orderDTO.Status,
+                ProductsCount = orderDTO.ProductsCount,
+                CreatedAt = DateTime.Now.ToUniversalTime(),
+                ReceiverId = orderDTO.ReceiverId,
+                Receiver = null,
+                Products = null,
+            };
+            try
+            {
+                this.Create(order);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
     }
 }

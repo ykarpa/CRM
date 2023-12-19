@@ -67,8 +67,18 @@ namespace Presentation
 					  DataContext = provider.GetRequiredService<RegistrationViewModel>()
 				  });
 				  services.AddTransient<RegistrationViewModel>();
+                  services.AddTransient<CreateOrder>(provider => new CreateOrder()
+                  {
+                      DataContext = provider.GetRequiredService<CreationOrderViewModel>()
+                  });
+                  services.AddTransient<CreationOrderViewModel>();
+                  services.AddTransient<CreateAdvertisement>(provider => new CreateAdvertisement()
+                  {
+                      DataContext = provider.GetRequiredService<CreationAdvertisementViewModel>()
+                  });
+                  services.AddTransient<CreationAdvertisementViewModel>();
 
-				  services.AddSingleton<INavigationService, NavigationServices>();
+                  services.AddSingleton<INavigationService, NavigationServices>();
 				  services.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
 
 				  services.AddTransient<UserService>();
