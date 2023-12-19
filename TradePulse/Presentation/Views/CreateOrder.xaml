@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Presentation.Views"
              mc:Ignorable="d" 
-             Height="690" Width="1280" Background="Transparent">
+             Height="600" Width="950" Background="Transparent">
 
-    <Grid>
-        <Border CornerRadius="30" Height="635" Width="925" Background="#FFF" BorderBrush="Black" BorderThickness="1">
+    <Grid Margin="0,0,0,0">
+        <Border CornerRadius="30" Width="925" Background="#FFF" BorderBrush="Black" BorderThickness="1" Margin="12,0,12,0" Height="580" VerticalAlignment="Center">
             <StackPanel>
                 <TextBlock Text="Ваше замовлення" TextAlignment="Center" Foreground="#060542" FontSize="38" FontFamily="Inter" FontWeight="DemiBold" Margin="70,30,70,0"/>
                 <TextBlock Text="Контактні дані одержувача" FontSize="18" Foreground="#184191" FontFamily="Inter" FontWeight="DemiBold" Height="22" Margin="70,30,70,0"/>
@@ -60,9 +60,11 @@
                     <TextBlock Text="{Binding OrderPrice}" Width="50" HorizontalAlignment="Left" Foreground="#184191" FontWeight="Bold"/>
                 </StackPanel>
 
+                <TextBlock Text="Загальна вартість замовлення" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
+
                 <!-- Кнопка "Оформити замовлення" -->
-                <Border CornerRadius="20" Width="228" Background="#060542" HorizontalAlignment="Right" Margin="0,20,100,0">
-                    <Button Content="Оформити замовлення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Right"/>
+                <Border CornerRadius="20" Width="228" Background="#060542" HorizontalAlignment="Right" Margin="0,0,100,0">
+                    <Button Content="Оформити замовлення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center" Click="Button_Click"/>
                 </Border>
             </StackPanel>
         </Border>

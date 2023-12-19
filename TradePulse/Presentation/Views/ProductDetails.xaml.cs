@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows;
 
 namespace Presentation.Views
 {
@@ -10,6 +11,11 @@ namespace Presentation.Views
         public ProductDetails()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBox.Show("Товар додано до кошика!");
         }
     }
 }

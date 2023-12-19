@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Presentation.Views.MyOrders"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Presentation.Views"
+             mc:Ignorable="d"
+             Height="690" Width="1280" Background="#C4D0E8">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top"  HorizontalAlignment="Left" Width="300" Height="40" Margin="72,37,0,0">
+            <TextBlock Text="Мої замовлення" FontSize="36" FontWeight="Bold" Foreground="#060542" FontFamily="Inter"/>
+        </StackPanel>
+        <Border VerticalAlignment="Top" Background="White" Margin="30,110,30,0" Height="152" CornerRadius="5">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Orders}" CanUserAddRows="False" CanUserDeleteRows="False" ColumnHeaderHeight="50" MinColumnWidth="100" RowHeight="50">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Дата" Width="100" Binding="{Binding CreatedAt}" />
+                    <DataGridTextColumn Header="Номер замовлення" MinWidth="160" Binding="{Binding OrderId}" />
+                    <DataGridTextColumn Header="Отримувач" MinWidth="190" Binding="{Binding Receiver.FirstName}" />
+                    <DataGridTextColumn Header="ТТН" MinWidth="200" Binding="{Binding DropPrice}" />
+                    <DataGridTextColumn Header="Сума замовлення" MinWidth="190" Binding="{Binding OrderPrice}" />
+                    <DataGridTextColumn Header="Доставка" MinWidth="180" Binding="{Binding DeliveryType}" />
+                    <DataGridTextColumn Header="Спосіб оплати" MinWidth="190" Binding="{Binding PaymentType}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

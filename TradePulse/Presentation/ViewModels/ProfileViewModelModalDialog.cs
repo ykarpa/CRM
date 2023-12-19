@@ -1,5 +1,6 @@
 ﻿using Presentation.Services;
 using Presentation.Core;
+using Presentation.Views;
 
 namespace Presentation.ViewModels
 {
@@ -19,6 +20,7 @@ namespace Presentation.ViewModels
 
         public RelayCommand NavigateToProfile { get; set; }
         public RelayCommand NavigateToFinance { get; set; }
+        public RelayCommand NavigateToMyOrders { get; set; }
 
         public ProfileViewModelModalDialog(INavigationService navService)
         {
@@ -33,6 +35,7 @@ namespace Presentation.ViewModels
             {
                 Navigation.NavigateTo<FinanceViewModel>();
             });
+            this.NavigateToMyOrders = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<MyOrdersViewModel>(); });
         }
     }
 }
