@@ -3,7 +3,8 @@ using Presentation.Services;
 
 public class PasswordService
 {
-	private static int SaltSize { get; set; } = 3;
+    public static CryptoService CryptoService { get; set; }
+    private static int SaltSize { get; set; } = 3;
 	private static string Delimiter { get; set; } = "3__3__3";
 	public static string EncodePassword(string password)
 	{
