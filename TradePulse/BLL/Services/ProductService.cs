@@ -79,5 +79,29 @@ namespace BLL.Services
 			};
 		}
 
-	}
+        public async Task Create(ProductDetailsDTO productDTO)
+        {
+            Product product = new()
+            {
+                Title = productDTO.Title,
+				Description = productDTO.Description,
+				Model = productDTO.Model,
+				Price = productDTO.Price,
+                Category = productDTO.Category,
+				ItemsAvailable = productDTO.ItemsAvailable,
+				VendorId = productDTO.VendorId,
+                CreatedAt = DateTime.Now.ToUniversalTime(),
+                Vendor = null,
+                Orders = null,
+            };
+            try
+            {
+                this.Create(product);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+    }
 }

@@ -20,8 +20,8 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="70,5,70,0">
-                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0"/>
-                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter"/>
+                    <TextBox Height="30" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0" Text="{Binding LastName}"/>
+                    <TextBox Height="30" Width="300" FontSize="16" FontFamily="Inter" Text="{Binding FirstName}"/>
                 </StackPanel>
 
                 <!-- Телефон та Емейл -->
@@ -31,21 +31,34 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="70,5,70,0">
-                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0"/>
-                    <TextBox Height="26" Width="300" FontSize="16" FontFamily="Inter"/>
+                    <TextBox Height="30" Width="300" FontSize="16" FontFamily="Inter" Margin="0,0,183,0" Text="{Binding Phone}"/>
+                    <TextBox Height="30" Width="300" FontSize="16" FontFamily="Inter" Text="{Binding Email}"/>
                 </StackPanel>
 
                 <!-- Спосіб доставки -->
-                <TextBlock Text="Спосіб доставки" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
-                <RadioButton Content="Нова пошта" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
-                <RadioButton Content="Укрпошта" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
-                <RadioButton Content="Meest" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
-                <RadioButton Content="Самовивіз" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <StackPanel Margin="70,20,70,0">
+                    <TextBlock Text="Спосіб доставки" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter"/>
+                    <ComboBox HorizontalAlignment="Left" Width="300" Height="30" SelectedValue="{Binding DeliveryType}">
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Нова пошта</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Укрпошта</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Meest</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Самовивіз</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
 
                 <!-- Спосіб оплати -->
-                <TextBlock Text="Спосіб оплати" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
-                <RadioButton Content="Оплата картою" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
-                <RadioButton Content="Післяплата" Height="20" Foreground="#184191" FontSize="16" FontFamily="Inter" Margin="70,0,70,0"/>
+                <StackPanel Margin="70,20,70,0">
+                    <TextBlock Text="Спосіб оплати" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter"/>
+                    <ComboBox HorizontalAlignment="Left" Width="300" Height="30" SelectedValue="{Binding PaymentType}">
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Оплата карткою</ComboBoxItem>
+                        <ComboBoxItem Foreground="#184191" FontSize="16" FontFamily="Inter">Післяплата</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="70,20,0,0" Orientation="Horizontal">
+                    <TextBlock Text="Загальна вартість замовлення:" HorizontalAlignment="Left" Height="28" Width="290" Foreground="#184191" FontSize="20" FontWeight="DemiBold" FontFamily="Inter"/>
+                    <TextBlock Text="{Binding OrderPrice}" Width="50" HorizontalAlignment="Left" Foreground="#184191" FontWeight="Bold"/>
+                </StackPanel>
 
                 <TextBlock Text="Загальна вартість замовлення" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
 
