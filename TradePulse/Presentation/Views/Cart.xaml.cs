@@ -28,11 +28,20 @@ namespace Presentation.Views
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
+            orderDialog.Visibility = Visibility.Hidden;
+
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                orderDialog.Visibility = (orderDialog.Visibility == Visibility.Visible) ? Visibility.Hidden : Visibility.Visible;
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }
