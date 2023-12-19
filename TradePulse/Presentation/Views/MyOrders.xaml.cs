@@ -33,7 +33,7 @@ namespace Presentation.Views
             {
                 new Order
                 {
-                    OrderId = 2,
+                    OrderId = 1,
                     CreatedAt = DateTime.Parse("19.12.2023"),
                     OrderPrice = 749.97m,
                     DropPrice = 20450621322693,
@@ -41,16 +41,16 @@ namespace Presentation.Views
                     PaymentType = "Післяплата",
                     Receiver = new User { FirstName = "Остап" }
                 },
-                new Order
-                {
-                    OrderId = 1,
-                    CreatedAt = DateTime.Parse("10.12.2023"),
-                    OrderPrice = 249.99m,
-                    DropPrice = 5503667997307,
-                    DeliveryType = "Укрпошта",
-                    PaymentType = "Оплата карткою",
-                    Receiver = new User { FirstName = "Остап" }
-                } 
+                //new Order
+                //{
+                //    OrderId = 1,
+                //    CreatedAt = DateTime.Parse("10.12.2023"),
+                //    OrderPrice = 249.99m,
+                //    DropPrice = 5503667997307,
+                //    DeliveryType = "Укрпошта",
+                //    PaymentType = "Оплата карткою",
+                //    Receiver = new User { FirstName = "Остап" }
+                //} 
             };
         }
     }

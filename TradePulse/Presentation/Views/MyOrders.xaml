@@ -11,7 +11,7 @@
         <StackPanel VerticalAlignment="Top"  HorizontalAlignment="Left" Width="300" Height="40" Margin="72,37,0,0">
             <TextBlock Text="Мої замовлення" FontSize="36" FontWeight="Bold" Foreground="#060542" FontFamily="Inter"/>
         </StackPanel>
-        <Border VerticalAlignment="Top" Background="White" Margin="30,110,30,0" Height="152" CornerRadius="5">
+        <Border VerticalAlignment="Top" Background="White" Margin="30,110,30,0" Height="102" CornerRadius="5">
             <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Orders}" CanUserAddRows="False" CanUserDeleteRows="False" ColumnHeaderHeight="50" MinColumnWidth="100" RowHeight="50">
 
                 <DataGrid.Columns>
