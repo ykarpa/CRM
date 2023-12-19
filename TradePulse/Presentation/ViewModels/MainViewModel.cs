@@ -52,8 +52,9 @@ namespace Presentation.ViewModels
 		public RelayCommand NavigateToCategories { get; set; }
 		public RelayCommand NavigateToProfile { get; private set; }
         public RelayCommand NavigateToFinance { get; set; }
+        public RelayCommand NavigateToMyOrders { get; set; }
 
-		public RelayCommand Logout { get; private set; }
+        public RelayCommand Logout { get; private set; }
 
         public MainViewModel(INavigationService navService, ProfileModalDialog _profileDialog)
 		{
@@ -75,6 +76,7 @@ namespace Presentation.ViewModels
 				Navigation.NavigateTo<FinanceViewModel>();
 				Navigation.InitParam<FinanceViewModel>(v => v.EarnedMoney = 100000);
             });
-		}
+            this.NavigateToMyOrders = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<MyOrdersViewModel>(); });
+        }
 	}
 }
