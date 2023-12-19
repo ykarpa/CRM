@@ -60,11 +60,9 @@
                     <TextBlock Text="{Binding OrderPrice}" Width="50" HorizontalAlignment="Left" Foreground="#184191" FontWeight="Bold"/>
                 </StackPanel>
 
-                <TextBlock Text="Загальна вартість замовлення" HorizontalAlignment="Left" Height="26" Width="300" Foreground="#184191" FontSize="18" FontWeight="DemiBold" FontFamily="Inter" Margin="70,20,0,0"/>
-
                 <!-- Кнопка "Оформити замовлення" -->
                 <Border CornerRadius="20" Width="228" Background="#060542" HorizontalAlignment="Right" Margin="0,0,100,0">
-                    <Button Content="Оформити замовлення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center" Click="Button_Click"/>
+                    <Button Content="Оформити замовлення" Width="228" Height="40" Background="Transparent" BorderThickness="0" Foreground="#fff" FontFamily="Inter" FontSize="16" FontWeight="DemiBold" HorizontalAlignment="Center" Command="{Binding CreateOrderCommand}" Click="Button_Click"/>
                 </Border>
             </StackPanel>
         </Border>

@@ -21,6 +21,7 @@ namespace Presentation.ViewModels
         public RelayCommand NavigateToProfile { get; set; }
         public RelayCommand NavigateToFinance { get; set; }
         public RelayCommand NavigateToMyOrders { get; set; }
+        public RelayCommand NavigateToCreateAdvertisement { get; set; }
 
         public ProfileViewModelModalDialog(INavigationService navService)
         {
@@ -36,6 +37,7 @@ namespace Presentation.ViewModels
                 Navigation.NavigateTo<FinanceViewModel>();
             });
             this.NavigateToMyOrders = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<MyOrdersViewModel>(); });
+            this.NavigateToCreateAdvertisement = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<CreationAdvertisementViewModel>(); });
         }
     }
 }

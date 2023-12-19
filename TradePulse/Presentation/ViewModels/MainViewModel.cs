@@ -53,6 +53,7 @@ namespace Presentation.ViewModels
 		public RelayCommand NavigateToProfile { get; private set; }
         public RelayCommand NavigateToFinance { get; set; }
         public RelayCommand NavigateToMyOrders { get; set; }
+		public RelayCommand NavigateToCreateAdvertisement { get; set; }
 
         public RelayCommand Logout { get; private set; }
 
@@ -77,6 +78,7 @@ namespace Presentation.ViewModels
 				Navigation.InitParam<FinanceViewModel>(v => v.EarnedMoney = 100000);
             });
             this.NavigateToMyOrders = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<MyOrdersViewModel>(); });
+            this.NavigateToCreateAdvertisement = new RelayCommand(_ => true, _ => { Navigation.NavigateTo<CreationAdvertisementViewModel>(); });
         }
 	}
 }

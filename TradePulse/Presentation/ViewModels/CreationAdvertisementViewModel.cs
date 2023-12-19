@@ -14,7 +14,7 @@ namespace Presentation.ViewModels
     public class CreationAdvertisementViewModel : ViewModel
     {
         private INavigationService _navService { get; set; }
-        public static ProductService _productService { get; set; } = null!;
+        private ProductService _productService = new ProductService();
 
         private string? _title;
 
@@ -80,12 +80,12 @@ namespace Presentation.ViewModels
         private string _categoryString;
         public RelayCommand CreateAdvertisementCommand { get; set; }
 
-        public async Task CreateAdvertisement()
+        public async Task<bool> CreateAdvertisement()
         {
             bool isDataValid = ValidateData();
             if (!isDataValid)
             {
-                return;
+                return false;
             }
             ProductDetailsDTO product = new ProductDetailsDTO()
             {
@@ -101,8 +101,12 @@ namespace Presentation.ViewModels
             {
                 await _productService.Create(product);
             }
-            catch { 
+            catch 
+            { 
+                return false;
             }
+
+            return true;
         }
 
         private bool ValidateData()
@@ -141,8 +145,12 @@ namespace Presentation.ViewModels
             _navService = navService;
             this.CreateAdvertisementCommand = new RelayCommand(_ => true, _ =>
             {
-                Task.Run(async () => await this.CreateAdvertisement());
-                navService.NavigateTo<CategoriesViewModel>();
+                Task.Run(async () =>
+                {
+                    var isRegistered = await this.CreateAdvertisement();
+                    if (!isRegistered) return;
+                    navService.NavigateTo<CategoriesViewModel>();
+                });
             });
         }
     }

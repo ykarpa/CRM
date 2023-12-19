@@ -13,7 +13,7 @@ namespace Presentation.ViewModels
     public class CreationOrderViewModel : ViewModel
     {
         private INavigationService _navService { get; set; }
-        public static OrderService _orderService { get; set; } = null!;
+        private OrderService _orderService = new OrderService();
         private string? _firstName;
 
         public string? FirstName
@@ -80,19 +80,24 @@ namespace Presentation.ViewModels
         private string _paymentTypeString;
         public RelayCommand CreateOrderCommand { get; set; }
 
-        public async Task CreateOrder()
+        public async Task<bool> CreateOrder()
         {
-            //UserDetailsDTO user = new UserDetailsDTO()
-            //{
-            //    FirstName = this.FirstName!,
-            //    LastName = this.LastName!,
-            //    Email = this.Email!,
-            //};
+            bool isDataValid = ValidateData();
+            if (!isDataValid)
+            {
+                return false;
+            }
+            UserDetailsDTO user = new UserDetailsDTO()
+            {
+                FirstName = this.FirstName!,
+                LastName = this.LastName!,
+                Email = this.Email!,
+            };
             OrderDetailsDTO order = new OrderDetailsDTO()
             {
                 PaymentType = _paymentTypeString,
                 DeliveryType = _deliveryTypeString,
-                //ReceiverId = user.UserId,
+                ReceiverId = user.UserId,
             };
             try
             {
@@ -100,7 +105,10 @@ namespace Presentation.ViewModels
             }
             catch
             {
+                return false;
             }
+
+            return true;
         }
 
         private bool ValidateData()
@@ -139,8 +147,12 @@ namespace Presentation.ViewModels
             _navService = navService;
             this.CreateOrderCommand = new RelayCommand(_ => true, _ =>
             {
-                Task.Run(async () => await this.CreateOrder());
-                navService.NavigateTo<CategoriesViewModel>();
+                Task.Run(async () =>
+                {
+                    var isRegistered = await this.CreateOrder();
+                    if (!isRegistered) return;
+                    _navService.NavigateTo<CategoriesViewModel>();
+                });                
             });
         }
     }
